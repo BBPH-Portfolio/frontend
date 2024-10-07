@@ -38,7 +38,7 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
-  const { isDarkMode, setDarkMode } = useDarkMode();
+  const { setDarkMode } = useDarkMode();
   const { Spanish, setLanguage } = useLanguage();
 
   useEffect(() => {
