@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: HelveticaLight;
+}
+
+html {
+  scrollbar-width: none;
+  cursor: none;
+}
+
+@font-face {
+  font-family: Mukta;
+  src: url(../../public/fonts/Mukta-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: DmSans;
+  src: url(../../public/fonts/DMSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: DmSansBold;
+  src: url(../../public/fonts/DMSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: DmSansMedium;
+  src: url(../../public/fonts/DMSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: HelveticaExBold;
+  src: url(../../public/fonts/HelveticaNowDisplay-ExtBlk.ttf);
+}
+
+@font-face {
+  font-family: HelveticaThin;
+  src: url(../../public/fonts/HelveticaNowDisplay-Thin.ttf);
+}
+
+@font-face {
+  font-family: HelveticaLight;
+  src: url(../../public/fonts/HelveticaNowDisplay-Light.ttf);
+}
+
+@font-face {
+  font-family: HelveticaThinItalic;
+  src: url(../../public/fonts/HelveticaNowDisplay-ThinIta.ttf);
+}
+
+@font-face {
+  font-family: HelveticaHairlineItalic;
+  src: url(../../public/fonts/HelveticaNowDisplay-HairlineI.ttf);
+}
+
+@font-face {
+  font-family: HelveticaExtraBold;
+  src: url(../../public/fonts/HelveticaNowDisplay-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: HelveticaMedium;
+  src: url(../../public/fonts/HelveticaNowDisplay-Medium.ttf);
+}
+
+@font-face {
+  font-family: HelveticaHairline;
+  src: url(../../public/fonts/HelveticaNowDisplay-Hairline.ttf);
+}
+
+@font-face {
+  font-family: HelveticaMediumItalic;
+  src: url(../../public/fonts/HelveticaNowDisplay-MedIta.ttf);
+  }
