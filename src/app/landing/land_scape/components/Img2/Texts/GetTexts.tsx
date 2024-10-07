@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { useLanguage } from "@/components/Navbar";
 
 export const GetTexts2 = () => {
-  const { title, body, setTitle, setBody } = useTextStore();
+  const { title, setTitle, setBody } = useTextStore();
   const { Spanish } = useLanguage();
 
   useEffect(() => {

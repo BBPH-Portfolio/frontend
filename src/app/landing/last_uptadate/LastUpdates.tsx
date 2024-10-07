@@ -1,5 +1,3 @@
-import Image from "next/image";
-import First_project from "../../../../public/media/First_project.png";
 import { GetImage1 } from "./components/Img1/Images/GetImage";
 import { useState, useEffect } from "react";
 import { DialogImage } from "./components/Img1/Images/DialogImage";
