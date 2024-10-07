@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import { GetImage } from "./components/Images/GetImage";
 import { DialogImage } from "./components/Images/DialogImage";
 import { GetTexts } from "./components/Texts/GetTexts";
@@ -8,6 +9,8 @@ import DialogText from "./components/Texts/DialogText";
 
 const About = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const title2Ref = useRef<HTMLHeadingElement | null>(null);
+  const bodyRef = useRef<HTMLParagraphElement | null>(null);
   const [token, setToken] = useState(false);
 
   useEffect(() => {

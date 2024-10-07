@@ -1,8 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
 import { GetImageS } from "./components/Images/GetImage";
 import { DialogImage } from "./components/Images/DialogImage";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { GetTexts1 } from "./components/text1/GetTexts";
+import DialogText1 from "./components/text1/DialogText";
+import { GetTexts2 } from "./components/text2/GetTexts";
+import { DialogText2 } from "./components/text2/DialogText";
+import { GetTexts3 } from "./components/text3/GetTexts";
+import { DialogText3 } from "./components/text3/DialogText";
+import { GetTexts4 } from "./components/text4/GetTexts";
+import { DialogText4 } from "./components/text4/DialogText";
+
 const ServiceSection = () => {
   const [token, setToken] = useState(false);
 
@@ -19,77 +33,75 @@ const ServiceSection = () => {
             PRODUCTS & SERVICES
             <br />
           </h2>
-          <div className="flex justify-center 2xl:block 2xl:justify-normal">
-            <div className="flex flex-col items-center grid-cols-1 grid-rows-2 mt-40 gap-x-4 2xl:w-auto w-[30rem] md:w-[45rem] sm:grid-cols-2 sm:grid">
-              <div className="border-y border-black dark:border-white flex h-auto flex-col w-[14rem] md:w-[20rem]">
-                <div className="py-4">
-                  <h2 className="text-2xl mb-2 font-[HelveticaMedium]">
-                    CREATIVE
-                  </h2>
-                  <p className=" md:text-[1rem] text-[0.8rem] text-[#8B8B8B]">
-                    DIVE INTO CONCEPTS TO FIND THE ONE THAT SUITS BEST FOR A
-                    PERSONA / BRAND
-                  </p>
-                  <div className="flex items-center mt-4">
-                    <div className="bg-black dark:bg-white h-[2rem] w-[2rem]  rounded-full flex items-center justify-center cursor-pointer">
-                      {" "}
-                      <ArrowUp className="text-white dark:text-black rotate-45" />{" "}
-                    </div>
-                  </div>
+          <Accordion type="single" collapsible className="w-full mt-[9rem]">
+            <AccordionItem
+              value="item-1"
+              className="border-t border-black dark:border-white "
+            >
+              <AccordionTrigger className="py-4 cursor-none relative">
+                <div>
+                  <GetTexts1 />
+                  {token && <DialogText1 />}
                 </div>
-              </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="pb-4">
+                  Contenido detallado sobre servicios creativos...
+                </p>
+              </AccordionContent>
+            </AccordionItem>
 
-              <div className="border-y border-black dark:border-white flex h-auto flex-col w-[14rem] md:w-[20rem]">
-                <div className="py-4">
-                  <h2 className="text-2xl mb-2 font-[HelveticaMedium]">
-                    LIGHTING STUDIO
-                  </h2>
-                  <p className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B]">
-                    SHAPING AN IDEA ON PAPER BRINGS THE BEST CAMPAIGNS
-                  </p>
-                  <div className="flex items-center mt-4">
-                    <div className="bg-black dark:bg-white h-[2rem] w-[2rem]  rounded-full flex items-center justify-center cursor-pointer">
-                      {" "}
-                      <ArrowUp className="text-white dark:text-black rotate-45" />{" "}
-                    </div>
-                  </div>
+            <AccordionItem
+              value="item-2"
+              className="border-b border-black dark:border-white"
+            >
+              <AccordionTrigger className="py-4 cursor-none relative">
+                <div>
+                  <GetTexts2 />
+                  {token && <DialogText2 />}
                 </div>
-              </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="pb-4">
+                  Información sobre nuestro estudio de iluminación...
+                </p>
+              </AccordionContent>
+            </AccordionItem>
 
-              <div className="border-b border-black dark:border-white flex h-auto flex-col w-[14rem] md:w-[20rem] ">
-                <div className="py-4">
-                  <h2 className="text-2xl mb-2 font-[HelveticaMedium]">
-                    EQUIPMENT
-                  </h2>
-                  <p className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B]">
-                    TECH EQUIPMENT IS SO IMPORTANT TO CREATE GOOD IDEAS
-                  </p>
-                  <div className="flex items-center mt-4">
-                    <div className="bg-black dark:bg-white h-[2rem] w-[2rem]  rounded-full flex items-center justify-center cursor-pointer">
-                      {" "}
-                      <ArrowUp className="text-white dark:text-black rotate-45" />{" "}
-                    </div>
-                  </div>
+            <AccordionItem
+              value="item-3"
+              className="border-b border-black dark:border-white"
+            >
+              <AccordionTrigger className="py-4 cursor-none relative">
+                <div>
+                  <GetTexts3 />
+                  {token && <DialogText3 />}
                 </div>
-              </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="pb-4">
+                  Detalles sobre nuestro equipamiento tecnológico...
+                </p>
+              </AccordionContent>
+            </AccordionItem>
 
-              <div className="border-b border-black dark:border-white flex h-auto flex-col w-[14rem] md:w-[20rem]">
-                <div className="py-4">
-                  <h2 className="text-2xl mb-2 font-[HelveticaMedium]">
-                    CREW ON OF SET
-                  </h2>
-                  <p className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B]">
-                    TEAMS TO WORK HAND IN HAND TO ACHIEVE SOMETHING IMPRESSIVE
-                  </p>
-                  <div className="flex items-center mt-4">
-                    <div className="bg-black dark:bg-white h-[2rem] w-[2rem]  rounded-full flex items-center justify-center cursor-pointer">
-                      <ArrowUp className="text-white dark:text-black rotate-45" />{" "}
-                    </div>
-                  </div>
+            <AccordionItem
+              value="item-4"
+              className="border-b border-black dark:border-white"
+            >
+              <AccordionTrigger className="py-4 cursor-none relative">
+                <div>
+                  <GetTexts4 />
+                  {token && <DialogText4 />}
                 </div>
-              </div>
-            </div>
-          </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="pb-4">
+                  Información sobre nuestro equipo de producción...
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </section>
 
         <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">

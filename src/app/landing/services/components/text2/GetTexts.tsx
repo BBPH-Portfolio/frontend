@@ -1,6 +1,6 @@
-import { useTextStore } from "../../../store/Img1/UseText";
+import { useTextStore } from "../../store/Texts/text2/UseText";
 import { useEffect, useRef } from "react";
-import { fetchTextEn, fetchTextEs } from "../../../hooks/Img2/FetchText";
+import { fetchTextEn, fetchTextEs } from "../../hooks/Texts/text2/FetchText";
 import { gsap } from "gsap";
 import { useLanguage } from "@/components/Navbar";
 
@@ -70,9 +70,18 @@ export const GetTexts2 = () => {
 
   return (
     <>
-       <h2 className="text-white text-3xl lg:text-4xl absolute font-[Helveticalight] tracking-[3vw] lg:tracking-[6vw] mix-blend-difference">
-            {title}
-          </h2>
+      <h2
+        className="text-2xl mb-2 font-[HelveticaMedium] text-left"
+        ref={textRef}
+      >
+        {title}
+      </h2>
+      <p
+        className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B] text-left"
+        ref={bodyRef}
+      >
+        {body}
+      </p>
     </>
   );
 };

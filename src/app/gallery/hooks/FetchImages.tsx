@@ -16,7 +16,7 @@ export interface ImageData2 {
 
 export const fetchImagesUrl = async (): Promise<ImageData[] | null> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait`);
+    const response = await fetch("http://localhost:3000/categories/Portrait");
     if (response.ok) {
       const data = await response.json();
 
@@ -43,7 +43,7 @@ export const uploadFileImage = async (file: File, id: string) => {
   formData.append("file", file);
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/images/${id}`, {
+    const response = await fetch(`http://localhost:3000/images/${id}`, {
       method: "PATCH",
       body: formData,
     });
@@ -63,7 +63,7 @@ export const uploadFileImage = async (file: File, id: string) => {
 export const deleteImage = async (id: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait/image/${id}`,
+      `http://localhost:3000/categories/Portrait/image/${id}`,
       {
         method: "DELETE",
       }
@@ -85,7 +85,7 @@ export const AddImage = async (file: File) => {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait/image/`,
+      `http://localhost:3000/categories/Portrait/image/`,
       {
         method: "POST",
         body: formData,

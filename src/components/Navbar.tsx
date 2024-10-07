@@ -28,9 +28,9 @@ interface LanguageState {
 }
 
 export const useLanguage = create<LanguageState>((set) => ({
-  Spanish: true, 
+  Spanish: true,
   setLanguage: (language: boolean) => {
-    set(() => ({ Spanish: language })); 
+    set(() => ({ Spanish: language }));
   },
 }));
 
@@ -130,7 +130,7 @@ const Navbar = () => {
   }, [showNavbar]);
 
   const handleChangueLanguage = () => {
-    setLanguage(!Spanish); 
+    setLanguage(!Spanish);
   };
 
   return (
@@ -152,7 +152,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="w-auto">
-            <h1 className="font-[HelveticaExBold] text-6xl">BBPH</h1>
+            <Link className="font-[HelveticaExBold] text-6xl cursor-none" href={"/"}>BBPH</Link>
             <p className="font-[HelveticaThin] tracking-[9.3px] text-[10px] mt-[8px] pl-[3.5px]">
               LIGHT STUDIO
             </p>
@@ -169,7 +169,7 @@ const Navbar = () => {
               href="#"
               onClick={handleChangueLanguage}
             >
-              { Spanish ? "ENGLISH" : "ESPAÑOL" }
+              {Spanish ? "ENGLISH" : "ESPAÑOL"}
             </Link>
           </div>
 
@@ -202,8 +202,11 @@ const Navbar = () => {
                 >
                   GALLERY
                 </Link>
-                <button className="text-lg p-10 text-center font-[HelveticaLight] tracking-[.4rem] text-[.7rem]">
-                  {isDarkMode ? "LIGHT" : "DARK"}
+                <button
+                  className="text-lg p-10 text-center font-[HelveticaLight] tracking-[.4rem] text-[.7rem]"
+                  onClick={handleChangueLanguage}
+                >
+                  {Spanish ? "ENGLISH" : "ESPAÑOL"}
                 </button>
               </nav>
             </SheetContent>

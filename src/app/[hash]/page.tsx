@@ -34,7 +34,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/sign-in`, {
+      const response = await fetch("https://bbph-2ccb91494973.herokuapp.com/auth/sign-in", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
+    <div className="flex items-center justify-center min-h-screen bg-background cursor-auto">
       {token ? (
         <div className="flex flex-col items-center justify-center w-full h-full">
           <h1 className="text-black text-4xl font-bold">

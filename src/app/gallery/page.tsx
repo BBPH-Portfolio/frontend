@@ -6,13 +6,17 @@ import { fetchImagesUrl } from "./hooks/FetchImages";
 import { useImageStore } from "./store/UseImageGallery";
 import { DialogImageGallery } from "./components/DialogImageGallery";
 import { DialogAdd } from "./components/DialogAdd";
+import ImageViewer from "./components/ViewerImg";
 
-const Gallery = () => {
+const Gallery: React.FC = () => {
   const [token, setToken] = useState(false);
   const { setImageData, getOrderedImages } = useImageStore();
   const orderedImages = getOrderedImages();
   const [isLoading, setIsLoading] = useState(true);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -31,6 +35,14 @@ const Gallery = () => {
   }, [setImageData]);
 
   if (isLoading) return <div></div>;
+
+  const openImageViewer = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closeImageViewer = () => {
+    setSelectedImageIndex(null);
+  };
 
   return (
     <>
@@ -52,11 +64,19 @@ const Gallery = () => {
               </span>
             </h1>
             <div className="flex flex-col w-full ml-[12rem] mt-[4rem] text-black dark:text-color1 font-[DmSansMedium] text-xl lg:ml-[26rem] sm:ml-[20rem] ">
-              <Link href="/gallery" className="cursor-none">PORTRAIT</Link>
-              <Link href="/gallery/commercial" className="text-[#8B8B8B] cursor-none">
+              <Link href="/gallery" className="cursor-none">
+                PORTRAIT
+              </Link>
+              <Link
+                href="/gallery/commercial"
+                className="text-[#8B8B8B] cursor-none"
+              >
                 COMMERCIAL
               </Link>
-              <Link href="/gallery/raw cursor-none" className="text-[#8B8B8B] cursor-none">
+              <Link
+                href="/gallery/raw cursor-none"
+                className="text-[#8B8B8B] cursor-none"
+              >
                 RAW
               </Link>
             </div>
@@ -65,10 +85,11 @@ const Gallery = () => {
 
         <section className="w-full h-auto mb-[5rem]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {orderedImages.map((image) => (
+            {orderedImages.map((image, index) => (
               <div
                 key={image.id}
-                className="overflow-hidden relative w-full aspect-[3/2]"
+                className="overflow-hidden relative w-full aspect-[3/2] cursor-none"
+                onClick={() => openImageViewer(index)}
               >
                 <img
                   src={image.url}
@@ -93,6 +114,14 @@ const Gallery = () => {
           </div>
         </section>
       </section>
+
+      {selectedImageIndex !== null && (
+        <ImageViewer
+          images={orderedImages}
+          initialIndex={selectedImageIndex}
+          onClose={closeImageViewer}
+        />
+      )}
     </>
   );
 };
