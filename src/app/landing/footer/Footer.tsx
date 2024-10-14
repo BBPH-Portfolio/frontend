@@ -54,7 +54,7 @@ const Footer = () => {
             </h3>
             <h3 className="ml-0 transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5">
               <Link
-                href="https://wa.me/573134503971?text=Hola%20Brian!"
+                href="https://wa.me/573134503971"
                 target="_blank"
                 className="cursor-none"
               >
