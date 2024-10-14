@@ -38,7 +38,7 @@ export const DialogText2: React.FC = () => {
 
     try {
       const data = await UploadText(titleFetch, bodyFetch);
-      console.log("Datos recibidos:", data);
+
 
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);
@@ -72,7 +72,7 @@ export const DialogText2: React.FC = () => {
             <br />
             Los caracteres máximos de cada texto son:
             <br />
-            titulo: 20 caracteres, body: 200 caracteres.
+            titulo: 20 caracteres, body: 60 caracteres.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
@@ -91,7 +91,7 @@ export const DialogText2: React.FC = () => {
             placeholder="Reemplazar body..."
             className="mb-5 mt-2"
             type="text"
-            maxLength={200}
+            maxLength={60}
             id="bodyFetch"
           />
           <button

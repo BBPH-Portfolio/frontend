@@ -3,21 +3,22 @@ import { useEffect, useRef } from "react";
 import { useImageStore } from "../../../store/Img1/UseImageStore";
 import { fetchImageUrl } from "../../../hooks/Img1/FetchImage";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 export const GetImage1 = () => {
-  const { imageUrl, setImageUrl } = useImageStore();
+  const { imageUrl, setImageData, imageLink } = useImageStore();
   const ImgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const loadImageUrl = async () => {
-      const url = await fetchImageUrl();
-      if (url) {
-        setImageUrl(url);
+      const data = await fetchImageUrl();
+      if (data) {
+        setImageData(data.url, data.link);
       }
     };
 
     loadImageUrl();
-  }, [setImageUrl]);
+  }, [setImageData]);
 
   useEffect(() => {
     if (ImgRef.current) {
@@ -38,14 +39,16 @@ export const GetImage1 = () => {
   return (
     <>
       {imageUrl.length > 0 ? (
-        <Image
-          src={imageUrl}
-          alt="Project"
-          draggable={false}
-          className="object-cover h-[10rem] w-[20rem] mt-[2.3rem]"
-          width={10000}
-          height={10000}
-        />
+        <Link href={imageLink} target="_blank">
+          <Image
+            src={imageUrl}
+            alt="Project"
+            draggable={false}
+            className="object-cover h-[10rem] w-[20rem] mt-[2.3rem]"
+            width={10000}
+            height={10000}
+          />
+        </Link>
       ) : (
         <div className="flex-col gap-4 w-full flex items-center justify-center">
           <div className="w-20 h-20 border-4 border-transparent text-white text-4xl animate-spin flex items-center justify-center border-t-white rounded-full">

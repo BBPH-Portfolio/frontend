@@ -10,7 +10,7 @@ import {
 import { Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
-import { AddImage, fetchImagesUrl } from "../hooks/FetchImages";
+import { fetchImagesUrl } from "../hooks/FetchImages";
 import { useImageStore } from "../store/UseImageGallery";
 
 export const DialogAdd = () => {
@@ -24,7 +24,7 @@ export const DialogAdd = () => {
     if (!file) return;
 
     try {
-      const response = await AddImage(file);
+   
 
       toast.success("Imagen agregada con éxito");
 
@@ -33,7 +33,6 @@ export const DialogAdd = () => {
         setImageData(updatedImages);
       }
 
-      console.log(response);
     } catch (error) {
       console.error(error);
     }

@@ -37,7 +37,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className="custom-cursor"
+      className="custom-cursor hidden md:block"
       style={{
         position: "fixed",
         top: 0,

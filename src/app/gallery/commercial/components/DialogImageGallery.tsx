@@ -28,7 +28,7 @@ export const DialogImageGallery = ({ id, width, height }: Props) => {
   const { setImageData } = useImageStore();
 
   useEffect(() => {
-    console.log(id);
+
   });
 
   const handleFileUpload = async (e: React.FormEvent<HTMLFormElement>) => {

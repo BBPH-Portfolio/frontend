@@ -25,6 +25,7 @@ const LandScapeSection = () => {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [token, setToken] = useState(false);
+  const [currentSection, setCurrentSection] = useState(1);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -44,6 +45,16 @@ const LandScapeSection = () => {
             scrub: 2,
             pin: true,
             anticipatePin: 1,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              if (progress < 1/3) {
+                setCurrentSection(1);
+              } else if (progress < 2/3) {
+                setCurrentSection(2);
+              } else {
+                setCurrentSection(3);
+              }
+            }
           },
         });
 
@@ -67,6 +78,16 @@ const LandScapeSection = () => {
 
   return (
     <section className="overflow-hidden mt-[10rem]" ref={triggerRef}>
+      <nav className="absolute flex justify-between w-screen h-[110rem] z-10 items-center p-16 font-[DmSansBold] text-lg">
+        <div className="flex relative">
+          <span className="mix-blend-difference">{currentSection}</span>
+
+          <div className="border border-black w-40 h-0 mt-[13px] mx-5" />
+
+          <span>3</span>
+        </div>
+        <div className=" hidden md:block">Scroll to find my projects</div>
+      </nav>
       <div ref={sectionRef} className="flex w-[300vw] h-screen">
         <div className="w-screen h-full flex justify-center items-center relative">
           <GetTexts />

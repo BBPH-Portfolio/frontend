@@ -2,10 +2,12 @@ import { create } from "zustand";
 
 interface ImageState {
   imageUrl: string;
-  setImageUrl: (url: string) => void;
+  imageLink: string;
+  setImageData: (url: string, link: string) => void;
 }
 
 export const useImageStore = create<ImageState>()((set) => ({
   imageUrl: "",
-  setImageUrl: (url: string) => set({ imageUrl: url }),
+  imageLink: "",
+  setImageData: (url: string, link: string) => set({ imageUrl: url, imageLink: link }),
 }));

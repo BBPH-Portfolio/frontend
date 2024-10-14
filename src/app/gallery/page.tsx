@@ -74,7 +74,7 @@ const Gallery: React.FC = () => {
                 COMMERCIAL
               </Link>
               <Link
-                href="/gallery/raw cursor-none"
+                href="/gallery/raw"
                 className="text-[#8B8B8B] cursor-none"
               >
                 RAW
@@ -89,13 +89,14 @@ const Gallery: React.FC = () => {
               <div
                 key={image.id}
                 className="overflow-hidden relative w-full aspect-[3/2] cursor-none"
-                onClick={() => openImageViewer(index)}
+      
               >
                 <img
                   src={image.url}
                   alt={image.alt || `Image ${image.id}`}
                   className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105"
                   draggable={false}
+                  onClick={() => openImageViewer(index)}
                 />
                 {token && (
                   <DialogImageGallery

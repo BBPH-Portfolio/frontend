@@ -41,8 +41,6 @@ const DialogTextLeft: React.FC = () => {
 
     try {
       const data = await UploadText(titleFetch, bodyFetch);
-      console.log("Datos recibidos:", data);
-
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);
 

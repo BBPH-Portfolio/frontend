@@ -9,32 +9,42 @@ import {
 } from "@/components/ui/dialog";
 import { Pencil } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { uploadFileImage } from "../../../hooks/Img1/FetchImage";
+import { uploadFileImage, updateImageLink } from "../../../hooks/Img1/FetchImage";
 import { useImageStore } from "../../../store/Img1/UseImageStore";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export const DialogImage = () => {
-  const { setImageUrl } = useImageStore();
+  const { setImageData, imageLink } = useImageStore();
+  const [link, setLink] = useState(imageLink);
 
-  const handleFileUpload = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fileInput = e.currentTarget.picture as HTMLInputElement;
     const file = fileInput.files?.[0];
 
-    if (!file) return;
+    let uploadPromise;
 
-    const uploadPromise = uploadFileImage(file).then((data) => {
-      setImageUrl(data.url);
-    });
+    if (file) {
+      uploadPromise = uploadFileImage(file, link).then((data) => {
+        setImageData(data.url, data.link || link);
+      });
+    } else if (link !== imageLink) {
+      uploadPromise = updateImageLink(link).then((data) => {
+        setImageData(data.url, data.link);
+      });
+    } else {
+      return;
+    }
 
     toast
       .promise(uploadPromise, {
-        pending: "Reemplazando imagen...",
-        success: "Imagen reemplazada con éxito",
-        error: "Error al reemplazar la imagen",
+        pending: "Actualizando datos...",
+        success: "Datos actualizados con éxito",
+        error: "Error al actualizar los datos",
       })
       .catch((error) => {
-        console.error("Error al reemplazar la imagen:", error);
+        console.error("Error al actualizar los datos:", error);
       });
   };
 
@@ -48,26 +58,36 @@ export const DialogImage = () => {
       <DialogContent className="sm:max-w-[425px] text-black dark:text-color1 cursor-default">
         <DialogHeader>
           <DialogTitle className="pb-3 text-center">
-            Reemplazar imagen
+            Actualizar imagen
           </DialogTitle>
           <DialogDescription>
-            Ten en cuenta que estás a punto de reemplazar la imagen, no podrás
-            deshacer esta acción. <br /> <br />
+            Puedes reemplazar la imagen, actualizar el enlace, o ambos. <br /> <br />
             Las medidas de la nueva imagen deben ser: <br />
-            160 px de alto y 240 px de ancho.
+            160 px de alto y 240 px de ancho. <br/>
+            Para actualizar el Link, ten en cuenta que tiene que tener el formato completo ejemplo: https://
+
+
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleFileUpload}>
+        <form onSubmit={handleSubmit}>
           <Input
             id="picture"
             type="file"
             className="cursor-pointer h-10 p-2 my-5"
           />
+          <Input
+            id="link"
+            type="url"
+            placeholder="Ingrese el enlace asociado"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            className="h-10 p-2 my-5"
+          />
           <button
             className="text-color1 dark:text-black bg-black dark:bg-white p-3 rounded-lg w-full"
             type="submit"
           >
-            Reemplazar imagen
+            Actualizar imagen
           </button>
         </form>
       </DialogContent>
