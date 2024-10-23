@@ -73,7 +73,7 @@ export const GetTexts3 = () => {
       <h3 className="text-xl sm:text-2xl font-[HelveticaMedium] py-5" ref={textRef}>
         {title}
       </h3>
-      <p className="text-sm sm:text-[1rem] pb-5" ref={bodyRef}>{body}</p>
+      <p className="text-sm sm:text-[1rem] pb-5 break-words" ref={bodyRef}>{body}</p>
     </>
   );
 };

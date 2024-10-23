@@ -63,7 +63,7 @@ const Gallery: React.FC = () => {
                 GALLERY
               </span>
             </h1>
-            <div className="flex flex-col w-full ml-[12rem] mt-[4rem] text-black dark:text-color1 font-[DmSansMedium] text-xl lg:ml-[26rem] sm:ml-[20rem] ">
+            <div className="flex flex-col ml-[12rem] mt-[4rem] text-black dark:text-color1 font-[DmSansMedium] text-xl lg:ml-[26rem] sm:ml-[20rem] ">
               <Link href="/gallery" className="cursor-none">
                 PORTRAIT
               </Link>

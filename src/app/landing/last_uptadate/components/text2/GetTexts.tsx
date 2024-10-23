@@ -76,7 +76,7 @@ export const GetTexts2 = () => {
       >
         {title}
       </h3>
-      <p className="text-sm sm:text-[1rem] pb-5" ref={bodyRef}>
+      <p className="text-sm sm:text-[1rem] pb-5 break-words" ref={bodyRef}>
         {body}
       </p>
     </>

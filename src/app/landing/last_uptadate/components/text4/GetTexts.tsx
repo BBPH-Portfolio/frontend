@@ -70,11 +70,14 @@ export const GetTexts4 = () => {
 
   return (
     <>
-      <h3 className="text-xl sm:text-2xl font-[HelveticaMedium] pb-5" ref={textRef}>
+      <h3
+        className="text-xl sm:text-2xl font-[HelveticaMedium] pb-5"
+        ref={textRef}
+      >
         {title}
       </h3>
-      <p className="text-sm sm:text-[1rem]" ref={bodyRef}>
-       {body}
+      <p className="text-sm sm:text-[1rem] break-words" ref={bodyRef}>
+        {body}
       </p>
     </>
   );
