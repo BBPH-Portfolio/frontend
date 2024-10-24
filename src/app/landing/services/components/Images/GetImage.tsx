@@ -39,6 +39,7 @@ export const GetImageS = () => {
     <>
       {imageUrl.length > 0 ? (
         <Image
+        quality={100}
           src={imageUrl}
           width={10000}
           height={10000}

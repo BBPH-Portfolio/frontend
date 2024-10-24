@@ -39,6 +39,7 @@ export const GetImage2 = () => {
     <>
       {imageUrl.length > 0 ? (
         <Image
+        quality={100}
           src={imageUrl}
           alt="Project"
           draggable={false}

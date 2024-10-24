@@ -41,6 +41,7 @@ export const GetImage1 = () => {
       {imageUrl.length > 0 ? (
         <Link href={imageLink} target="_blank">
           <Image
+          quality={100}
             src={imageUrl}
             alt="Project"
             draggable={false}

@@ -34,6 +34,7 @@ const Footer = () => {
 
         <div className="h-full w-full flex justify-center items-center ">
           <Image
+          quality={100}
             src={image}
             alt="Logo"
             draggable={false}
