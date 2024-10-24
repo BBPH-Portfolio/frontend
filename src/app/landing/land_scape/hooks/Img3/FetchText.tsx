@@ -5,7 +5,7 @@ export const fetchTextEn = async (): Promise<{
 } | null> => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/texts/by-id/6703d5f44c8158ade581b3ba`
+      `${process.env.NEXT_PUBLIC_API_URL}/texts/by-id/6719957b953ee9d554223eee`
     );
 
     if (response.ok) {
@@ -28,7 +28,7 @@ export const fetchTextEs = async (): Promise<{
 } | null> => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/texts/by-id/6703d5ff4c8158ade581b3bc`
+      `${process.env.NEXT_PUBLIC_API_URL}/texts/by-id/6719994d953ee9d554223f37`
     );
 
     if (response.ok) {
@@ -52,7 +52,7 @@ export const uploadFileTextEn = async (title: string, body: string) => {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/texts/6703d5f44c8158ade581b3ba`,
+      `${process.env.NEXT_PUBLIC_API_URL}/texts/6719957b953ee9d554223eee`,
       {
         method: "PATCH",
         headers: {
@@ -84,7 +84,7 @@ export const uploadFileTextEs = async (title: string, body: string) => {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/texts/6703d5ff4c8158ade581b3bc`,
+      `${process.env.NEXT_PUBLIC_API_URL}/texts/6719994d953ee9d554223f37`,
       {
         method: "PATCH",
         headers: {

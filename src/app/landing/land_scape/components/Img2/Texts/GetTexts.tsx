@@ -1,4 +1,4 @@
-import { useTextStore } from "../../../store/Img1/UseText";
+import { useTextStore } from "../../../store/Img2/UseText";
 import { useEffect, useRef } from "react";
 import { fetchTextEn, fetchTextEs } from "../../../hooks/Img2/FetchText";
 import { gsap } from "gsap";

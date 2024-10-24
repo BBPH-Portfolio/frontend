@@ -82,7 +82,7 @@ const DialogText: React.FC = () => {
             placeholder="Reemplazar titulo..."
             className="mb-5 mt-2"
             type="text"
-            maxLength={70}
+            maxLength={300}
             id="titleFetch"
           />
           <label htmlFor="bodyFetch">Body:</label>
@@ -91,7 +91,7 @@ const DialogText: React.FC = () => {
             placeholder="Reemplazar body..."
             className="mb-5 mt-2"
             type="text"
-            maxLength={150}
+            maxLength={700}
             id="bodyFetch"
           />
           <button
