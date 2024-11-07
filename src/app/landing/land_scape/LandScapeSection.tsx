@@ -92,22 +92,22 @@ const LandScapeSection = () => {
       </nav>
       <div ref={sectionRef} className="flex w-[300vw] h-screen">
         <div className="w-screen h-full flex justify-center items-center relative">
-          <GetTexts />
-          {token && <DialogText />}
+          {/* <GetTexts />
+          {token && <DialogText />} */}
           <GetImage1 />
           {token && <DialogImage />}
         </div>
 
         <div className="w-screen h-full flex justify-center items-center relative">
-          <GetTexts2 />
-          {token && <DialogText2 />}
+          {/* <GetTexts2 />
+          {token && <DialogText2 />} */}
           <GetImage2 />
           {token && <DialogImage2 />}
         </div>
 
         <div className="w-screen h-full flex justify-center items-center relative">
-          <GetTexts3 />
-          {token && <DialogText3 />}
+          {/* <GetTexts3 />
+          {token && <DialogText3 />} */}
 
           <GetImage3 />
           {token && <DialogImage3 />}
