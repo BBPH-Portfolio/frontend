@@ -6,18 +6,14 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLayoutEffect } from "react";
 import { GetImage1 } from "./components/Img1/Images/GetImage";
 import { DialogImage } from "./components/Img1/Images/DialogImage";
-import DialogText from "./components/Img1/Texts/DialogText";
+
 import { GetImage2 } from "./components/Img2/Images/GetImage";
 import { DialogImage2 } from "./components/Img2/Images/DialogImage";
 
-import { GetTexts } from "./components/Img1/Texts/GetTexts";
-import { GetTexts2 } from "./components/Img2/Texts/GetTexts";
-import { GetTexts3 } from "./components/Img3/Texts/GetTexts";
 
-import { DialogText2 } from "./components/Img2/Texts/DialogText";
 import { GetImage3 } from "./components/Img3/Images/GetImage";
 import { DialogImage3 } from "./components/Img3/Images/DialogImage";
-import { DialogText3 } from "./components/Img3/Texts/DialogText";
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
