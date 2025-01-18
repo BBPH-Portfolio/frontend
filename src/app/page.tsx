@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import Footer from "./landing/footer/Footer";
 import HeroSection from "./landing/hero/HeroSection";
 import LandScapeSection from "./landing/land_scape/LandScapeSection";
@@ -9,6 +9,9 @@ import ServiceSection from "./landing/services/ServiceSection";
 import { Loader } from "@/components/Loader";
 import { useEffect } from "react";
 import { create } from "zustand";
+import { useMixBlend } from "@/store/store";
+import Link from "next/link";
+import DropDonwn from "@/components/navbar/DropDonwn";
 
 interface IStore {
   loading: boolean;
@@ -22,6 +25,7 @@ const useStoreLoading = create<IStore>((set) => ({
 
 export default function Home() {
   const { loading, setLoading } = useStoreLoading();
+  const { mixBlend, setMixBlend } = useMixBlend();
 
   useEffect(() => {
     const hasLoaded = sessionStorage.getItem("hasLoaded");
@@ -55,7 +59,14 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="mix-blend-difference z-[1] fixed w-[88%] mx-auto max-w-[90.75rem]">
+        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-end">
+          <DropDonwn />
+        </div>
+        <div
+          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
+            mixBlend ? "mix-blend-difference" : ""
+          }`}
+        >
           <Navbar />
         </div>
       </div>
@@ -66,10 +77,16 @@ export default function Home() {
       </div>
       <LandScapeSection />
       <div className="w-[88%] mx-auto max-w-[90.75rem]">
-        <ServiceSection />
+        <section id="services">
+          <ServiceSection />
+        </section>
       </div>
-      <LastUpdates />
-      <Footer />
+      <section id="updates">
+        <LastUpdates />
+      </section>
+      <section id="contact">
+        <Footer />
+      </section>
     </>
   );
 }

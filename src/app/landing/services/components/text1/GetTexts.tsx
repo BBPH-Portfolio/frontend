@@ -2,7 +2,7 @@ import { useTextStore } from "../../store/Texts/text1/UseText";
 import { useEffect, useRef } from "react";
 import { fetchTextEn, fetchTextEs } from "../../hooks/Texts/text1/FetchText";
 import { gsap } from "gsap";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 export const GetTexts1 = () => {
   const { title, body, setTitle, setBody } = useTextStore();
@@ -70,9 +70,7 @@ export const GetTexts1 = () => {
 
   return (
     <>
-      <h2
-        className="text-2xl mb-2 font-[HelveticaMedium] text-left"
-      >
+      <h2 className="text-2xl mb-2 font-[HelveticaMedium] text-left">
         {title}
       </h2>
 

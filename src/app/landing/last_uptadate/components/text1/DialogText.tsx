@@ -7,11 +7,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Pencil } from "lucide-react";
-import { uploadFileTextEn, uploadFileTextEs } from "../../hooks/text1/FetchText";
+import {
+  uploadFileTextEn,
+  uploadFileTextEs,
+} from "../../hooks/text1/FetchText";
 import { useTextStore } from "../../store/text1/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogText: React.FC = () => {
   const { setTitle, setBody } = useTextStore();
@@ -38,7 +41,6 @@ const DialogText: React.FC = () => {
 
     try {
       const data = await UploadText(titleFetch, bodyFetch);
-
 
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);

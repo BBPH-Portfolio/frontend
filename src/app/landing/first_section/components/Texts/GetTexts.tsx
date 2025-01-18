@@ -2,7 +2,7 @@ import { useTextStore } from "../../store/UseText";
 import { useEffect, useRef } from "react";
 import { fetchTextEn, fetchTextEs } from "../../hooks/FetchText";
 import { gsap } from "gsap";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 export const GetTexts = () => {
   const { title, body, setTitle, setBody } = useTextStore();

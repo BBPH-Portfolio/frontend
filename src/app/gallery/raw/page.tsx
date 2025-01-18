@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { fetchImagesUrl } from "./hooks/FetchImages";
@@ -7,6 +7,8 @@ import { useImageStore } from "./store/UseImageGallery";
 import { DialogImageGallery } from "./components/DialogImageGallery";
 import { DialogAdd } from "./components/DialogAdd";
 import ImageViewer from "./components/ViewerImg";
+import DropDonwn from "@/components/navbar/DropDonwn";
+import { useMixBlend } from "@/store/store";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -17,6 +19,7 @@ const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const { mixBlend } = useMixBlend();
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(true);
@@ -46,7 +49,14 @@ const Gallery = () => {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="mix-blend-difference z-[1] fixed w-[88%] mx-auto max-w-[90.75rem]">
+        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-end">
+          <DropDonwn />
+        </div>
+        <div
+          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
+            mixBlend ? "mix-blend-difference" : ""
+          }`}
+        >
           <Navbar />
         </div>
       </div>
@@ -88,7 +98,6 @@ const Gallery = () => {
               <div
                 key={image.id}
                 className="overflow-hidden relative w-full aspect-[3/2]"
-
               >
                 <img
                   src={image.url}

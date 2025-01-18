@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { fetchImagesUrl } from "./hooks/FetchImages";
@@ -7,6 +7,8 @@ import { useImageStore } from "./store/UseImageGallery";
 import { DialogImageGallery } from "./components/DialogImageGallery";
 import { DialogAdd } from "./components/DialogAdd";
 import ImageViewer from "./components/ViewerImg";
+import DropDonwn from "@/components/navbar/DropDonwn";
+import { useMixBlend } from "@/store/store";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -17,6 +19,7 @@ const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const { mixBlend } = useMixBlend();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -44,15 +47,20 @@ const Gallery = () => {
     setSelectedImageIndex(null);
   };
 
-
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="mix-blend-difference z-[1] fixed w-[88%] mx-auto max-w-[90.75rem]">
+        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-end">
+          <DropDonwn />
+        </div>
+        <div
+          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
+            mixBlend ? "mix-blend-difference" : ""
+          }`}
+        >
           <Navbar />
         </div>
       </div>
-
       <section className="w-[88%] mx-auto max-w-[125.75rem]">
         <section className="h-[70vh] flex justify-center">
           <div>
@@ -65,8 +73,13 @@ const Gallery = () => {
               </span>
             </h1>
             <div className="flex flex-col w-full ml-[12rem] mt-[4rem] text-[#8B8B8B]  font-[DmSansMedium] text-xl lg:ml-[26rem] sm:ml-[20rem]">
-              <Link href="/gallery" className="cursor-none">PORTRAIT</Link>
-              <Link href="/gallery/commercial" className="text-black dark:text-color1 cursor-none">
+              <Link href="/gallery" className="cursor-none">
+                PORTRAIT
+              </Link>
+              <Link
+                href="/gallery/commercial"
+                className="text-black dark:text-color1 cursor-none"
+              >
                 COMMERCIAL
               </Link>
               <Link href="/gallery/raw" className="text-[#8B8B8B] cursor-none">
@@ -79,7 +92,6 @@ const Gallery = () => {
         <section className="w-full h-auto mb-[5rem]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {orderedImages.map((image, index) => (
-
               <div
                 key={image.id}
                 className="overflow-hidden relative w-full aspect-[3/2]"
@@ -89,7 +101,7 @@ const Gallery = () => {
                   alt={image.alt || `Image ${image.id}`}
                   className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105"
                   draggable={false}
-                  onClick={ () => openImageViewer(index)}
+                  onClick={() => openImageViewer(index)}
                 />
                 {token && (
                   <DialogImageGallery
@@ -109,14 +121,13 @@ const Gallery = () => {
         </section>
       </section>
 
-     {selectedImageIndex !== null && (
+      {selectedImageIndex !== null && (
         <ImageViewer
           images={orderedImages}
           initialIndex={selectedImageIndex}
           onClose={closeImageViewer}
         />
       )}
-
     </>
   );
 };

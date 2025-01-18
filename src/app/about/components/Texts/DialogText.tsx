@@ -11,7 +11,7 @@ import { uploadFileTextEn, uploadFileTextEs } from "../../hooks/FetchText";
 import { useTextStore } from "../../store/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogText: React.FC = () => {
   const { setTitle, setBody } = useTextStore();

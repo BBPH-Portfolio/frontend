@@ -14,7 +14,7 @@ import {
 import { useTextStore } from "../../store/textLeft/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogTextLeft: React.FC = () => {
   const { setTitle, setBody } = useTextStore();

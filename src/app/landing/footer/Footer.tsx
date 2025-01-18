@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Logo from "../../../../public/media/logo_blanco.png";
 import Logo_black from "../../../../public/media/logo_negro1.png";
-import { useDarkMode } from "@/components/Navbar";
+import { useDarkMode } from "@/components/navbar/Navbar";
 import TimeDisplay from "./components/Date";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
         <div className="h-full w-full flex justify-center items-center ">
           <Image
-          quality={100}
+            quality={100}
             src={image}
             alt="Logo"
             draggable={false}
