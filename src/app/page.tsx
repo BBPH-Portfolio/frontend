@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import { create } from "zustand";
 import { useMixBlend } from "@/store/store";
 import DropDonwn from "@/components/navbar/DropDonwn";
-import Switch from "@/components/Switch";
 
 interface IStore {
   loading: boolean;
