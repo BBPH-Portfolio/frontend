@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useDarkMode } from "./Navbar";
 import { useRouter, usePathname } from "next/navigation"; 
+import Switch from "../Switch";
 
 const DropDonwn = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,14 +76,6 @@ const DropDonwn = () => {
     }
   }, [showNavbar]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-
   const handleNavClick = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     sectionId: string
@@ -108,9 +101,10 @@ const DropDonwn = () => {
 
   return (
     <>
+     <Switch />
       <button
         onClick={handleMenuToggle}
-        className="cursor-none mt-4 relative z-50"
+        className="cursor-none relative z-50"
         ref={navRef}
       >
         <div

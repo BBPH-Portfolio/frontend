@@ -75,7 +75,7 @@ const LandScapeSection = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden mt-[10rem] relative" ref={triggerRef}>
+    <section className="overflow-hidden mt-[20rem] relative" ref={triggerRef}>
       <nav className="absolute flex justify-between w-screen top-[85%]  z-10 items-center p-16 font-[DmSansBold] text-lg">
         <div className="flex relative">
           <span className="mix-blend-difference">{currentSection}</span>

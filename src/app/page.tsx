@@ -10,8 +10,8 @@ import { Loader } from "@/components/Loader";
 import { useEffect } from "react";
 import { create } from "zustand";
 import { useMixBlend } from "@/store/store";
-import Link from "next/link";
 import DropDonwn from "@/components/navbar/DropDonwn";
+import Switch from "@/components/Switch";
 
 interface IStore {
   loading: boolean;
@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-end">
+        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-center">
           <DropDonwn />
         </div>
         <div

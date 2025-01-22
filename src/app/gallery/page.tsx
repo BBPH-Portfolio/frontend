@@ -50,7 +50,7 @@ const Gallery: React.FC = () => {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-end">
+        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-center">
           <DropDonwn />
         </div>
         <div

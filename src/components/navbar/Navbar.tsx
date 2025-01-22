@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { create } from "zustand";
 import { gsap } from "gsap";
 import { useMixBlend } from "@/store/store";
+import { useRouter } from "next/navigation";
 
 interface DarkModeState {
   isDarkMode: boolean;
@@ -115,19 +116,20 @@ const Navbar = () => {
     setLanguage(!Spanish);
   };
 
+  const router = useRouter();
+
+  const handleNav = () => {
+    router.push("/");
+  };
+
   return (
     <>
       <nav
-        className="absolute top-10 left-[20%] md:left-1/2 translate-x-0 md:-translate-x-1/2 z-40"
+        className="absolute top-10 left-[0%] md:left-1/2 translate-x-0 md:-translate-x-1/2 z-40"
         ref={navRef}
       >
         <div className="flex justify-center">
-       
-          {/* <div className="absolute hidden md:block text-white left-0 ">
-            <button onClick={handleThemeChange}>darkmode</button>
-          </div> */}
-
-          <div className="text-left md:text-center">
+          <div className="text-left md:text-center" onClick={handleNav}>
             <Link
               className={`font-[HelveticaExBold] text-[3rem] cursor-none select-none 
                 ${mixBlend ? "text-white" : "text-black dark:text-white"}`}
