@@ -38,7 +38,7 @@ export const GetImage = () => {
   return (
     <>
       {imageUrl.length > 0 ? (
-        <Image
+          <Image
           src={imageUrl}
           quality={100}
           width={10000}

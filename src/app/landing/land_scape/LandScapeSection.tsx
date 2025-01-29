@@ -10,10 +10,8 @@ import { DialogImage } from "./components/Img1/Images/DialogImage";
 import { GetImage2 } from "./components/Img2/Images/GetImage";
 import { DialogImage2 } from "./components/Img2/Images/DialogImage";
 
-
 import { GetImage3 } from "./components/Img3/Images/GetImage";
 import { DialogImage3 } from "./components/Img3/Images/DialogImage";
-
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +21,7 @@ const LandScapeSection = () => {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [token, setToken] = useState(false);
-  const [currentSection, setCurrentSection] = useState(1);
+  const [, setCurrentSection] = useState(1);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -34,7 +32,7 @@ const LandScapeSection = () => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 300px)", () => {
+      mm.add("(min-width: 640px)", () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: triggerRef.current,
@@ -45,14 +43,14 @@ const LandScapeSection = () => {
             anticipatePin: 1,
             onUpdate: (self) => {
               const progress = self.progress;
-              if (progress < 1/3) {
+              if (progress < 1 / 3) {
                 setCurrentSection(1);
-              } else if (progress < 2/3) {
+              } else if (progress < 2 / 3) {
                 setCurrentSection(2);
               } else {
                 setCurrentSection(3);
               }
-            }
+            },
           },
         });
 
@@ -75,36 +73,29 @@ const LandScapeSection = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden mt-[10rem] relative" ref={triggerRef}>
-      <nav className="absolute flex justify-between w-screen top-[85%]  z-10 items-center p-16 font-[DmSansBold] text-lg">
-        <div className="flex relative">
-          <span className="mix-blend-difference">{currentSection}</span>
-
-          <div className="border border-black w-40 h-0 mt-[13px] mx-5" />
-
-          <span>3</span>
+    <section
+      className="overflow-hidden mt-[20rem] relative landscape-section"
+      ref={triggerRef}
+    >
+      <div className="sm:hidden">
+        <div className="relative flex items-center justify-center w-screen h-screen">
+          <GetImage1 />
+          {token && <DialogImage />}
         </div>
-        <div className=" hidden md:block">Scroll to find my projects</div>
-      </nav>
-      <div ref={sectionRef} className="flex w-[300vw] h-screen">
-        <div className="w-screen h-full flex justify-center items-center relative">
-          {/* <GetTexts />
-          {token && <DialogText />} */}
+      </div>
+
+      <div ref={sectionRef} className="hidden sm:flex w-[300vw] h-screen">
+        <div className="relative flex items-center justify-center w-screen h-full">
           <GetImage1 />
           {token && <DialogImage />}
         </div>
 
-        <div className="w-screen h-full flex justify-center items-center relative">
-          {/* <GetTexts2 />
-          {token && <DialogText2 />} */}
+        <div className="relative flex items-center justify-center w-screen h-full">
           <GetImage2 />
           {token && <DialogImage2 />}
         </div>
 
-        <div className="w-screen h-full flex justify-center items-center relative">
-          {/* <GetTexts3 />
-          {token && <DialogText3 />} */}
-
+        <div className="relative flex items-center justify-center w-screen h-full">
           <GetImage3 />
           {token && <DialogImage3 />}
         </div>

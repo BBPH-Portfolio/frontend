@@ -27,26 +27,38 @@ const ServiceSection = () => {
 
   return (
     <>
-      <section className="mt-[3rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-4 text-black dark:text-color1">
-        <section className="pt-40">
-          <h2 className="font-[HelveticaExtraBold] text-5xl">
-            PRODUCTS & SERVICES
+      <section className="mt-[8rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-4 text-black dark:text-color1">
+        <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">
+          <GetImageS />
+          {token && <DialogImage />}
+        </section>
+
+        <section className="pt-10">
+          <h2 className="font-[HelveticaExtraBold] text-5xl text-left">
+            products & services
             <br />
           </h2>
-          <Accordion type="single" collapsible className="w-full mt-[9rem]">
+
+          <p className="text-[1.2rem] xl:text-[1.3rem] pt-[4rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify">
+            WE LOVE CREATING WAYS TO CONNECT, CHECK OUT OUR PRODUCTS AND
+            SERVICES
+          </p>
+
+          <Accordion type="single" collapsible className="w-full mt-[7rem]">
             <AccordionItem
               value="item-1"
-              className="border-t border-black dark:border-white "
+              className="border-b border-black dark:border-white "
             >
-              <AccordionTrigger className="py-4 cursor-none relative">
-                <div>
-                  <GetTexts1 />
+              <AccordionTrigger className="relative py-7 cursor-none">
+                <div className="flex justify-between w-full">
+                  <GetTexts1 placement="trigger" />
                   {token && <DialogText1 />}
+                  <h2 className="text-2xl font-[HelveticaMedium]">01</h2>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
                 <p className="pb-4">
-                  Contenido detallado sobre servicios creativos...
+                  <GetTexts1 placement="content" />
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -55,15 +67,16 @@ const ServiceSection = () => {
               value="item-2"
               className="border-b border-black dark:border-white"
             >
-              <AccordionTrigger className="py-4 cursor-none relative">
-                <div>
-                  <GetTexts2 />
+              <AccordionTrigger className="relative py-7 cursor-none">
+                <div className="flex justify-between w-full">
+                  <GetTexts2 placement="trigger" />
                   {token && <DialogText2 />}
+                  <h2 className="text-2xl font-[HelveticaMedium]">02</h2>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
                 <p className="pb-4">
-                  Información sobre nuestro estudio de iluminación...
+                  <GetTexts2 placement="content" />
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -72,15 +85,16 @@ const ServiceSection = () => {
               value="item-3"
               className="border-b border-black dark:border-white"
             >
-              <AccordionTrigger className="py-4 cursor-none relative">
-                <div>
-                  <GetTexts3 />
+              <AccordionTrigger className="relative py-7 cursor-none">
+                <div className="flex justify-between w-full">
+                  <GetTexts3 placement="trigger" />
                   {token && <DialogText3 />}
+                  <h2 className="text-2xl font-[HelveticaMedium]">03</h2>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
                 <p className="pb-4">
-                  Detalles sobre nuestro equipamiento tecnológico...
+                  <GetTexts3 placement="content" />
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -89,24 +103,20 @@ const ServiceSection = () => {
               value="item-4"
               className="border-b border-black dark:border-white"
             >
-              <AccordionTrigger className="py-4 cursor-none relative">
-                <div>
-                  <GetTexts4 />
+              <AccordionTrigger className="relative py-7 cursor-none">
+                <div className="flex justify-between w-full">
+                  <GetTexts4 placement="trigger" />
                   {token && <DialogText4 />}
+                  <h2 className="text-2xl font-[HelveticaMedium]">04</h2>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
                 <p className="pb-4">
-                  Información sobre nuestro equipo de producción...
+                  <GetTexts4 placement="content" />
                 </p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </section>
-
-        <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">
-          <GetImageS />
-          {token && <DialogImage />}
         </section>
       </section>
     </>

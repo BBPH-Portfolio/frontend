@@ -1,22 +1,24 @@
 "use client";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchImagesUrl } from "./hooks/FetchImages";
 import { useImageStore } from "./store/UseImageGallery";
 import { DialogImageGallery } from "./components/DialogImageGallery";
 import { DialogAdd } from "./components/DialogAdd";
 import ImageViewer from "./components/ViewerImg";
+import DropDonwn from "@/components/navbar/DropDonwn";
+import { useMixBlend } from "@/store/store";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
   const { setImageData, getOrderedImages } = useImageStore();
   const orderedImages = getOrderedImages();
   const [isLoading, setIsLoading] = useState(true);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const { mixBlend } = useMixBlend();
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(true);
@@ -46,49 +48,43 @@ const Gallery = () => {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="mix-blend-difference z-[1] fixed w-[88%] mx-auto max-w-[90.75rem]">
+        <div className="fixed md:w-[23%] w-40 top-14 justify-end flex items-center z-[100] right-[6%]">
+          <DropDonwn />
+        </div>
+
+        <div
+          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
+            mixBlend ? "mix-blend-difference" : ""
+          }`}
+        >
           <Navbar />
         </div>
       </div>
 
-      <section className="w-[88%] mx-auto max-w-[125.75rem]">
-        <section className="h-[70vh] flex justify-center">
-          <div>
-            <h1
-              className="Title text-[5rem] lg:text-[13rem] text-black dark:text-color1 font-[HelveticaExtraBold] leading-[6rem] mt-[15rem] sm:text-[8rem]"
-              ref={titleRef}
-            >
-              <span className="tracking-tight" ref={titleRef}>
-                GALLERY
-              </span>
-            </h1>
-            <div className="flex flex-col w-full ml-[12rem] mt-[4rem] text-[#8B8B8B]  font-[DmSansMedium] text-xl lg:ml-[26rem] sm:ml-[20rem]">
-              <Link href="/gallery" className="cursor-none">
-                PORTRAIT
-              </Link>
-              <Link
-                href="/gallery/commercial"
-                className=" text-[#8B8B8B] cursor-none"
-              >
-                COMMERCIAL
-              </Link>
-              <Link
-                href="/gallery/raw"
-                className=" text-black dark:text-color1 cursor-none"
-              >
-                RAW
-              </Link>
-            </div>
-          </div>
-        </section>
+      <div className="md:w-[23%] w-40 flex md:pt-[0rem] absolute md:relative left-[6%] top-32 md:top-0 justify-between">
+        <div className="mt-[4rem] text-[#8B8B8B] font-[DmSansMedium] md:text-[1rem] text-sm">
+          <Link
+            href="/gallery"
+            className="cursor-none mr-[10%] text-[#8B8B8B]"
+          >
+            COMMERCIAL
+          </Link>
+        </div>
+        <div className="mt-[4rem] font-[DmSansMedium] md:text-[1rem] text-sm">
+          <Link href="/gallery/raw" className="text-black dark:text-color1 cursor-none">
+            RAW
+          </Link>
+        </div>
+      </div>
 
-        <section className="w-full h-auto mb-[5rem]">
+
+      <section className="w-[88%] mx-auto max-w-[125.75rem]">
+        <section className="w-full h-auto mb-[5rem] mt-60">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {orderedImages.map((image, index) => (
               <div
                 key={image.id}
                 className="overflow-hidden relative w-full aspect-[3/2]"
-
               >
                 <img
                   src={image.url}

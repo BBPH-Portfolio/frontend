@@ -2,7 +2,7 @@ import { useTextStore } from "../../../store/Img2/UseText";
 import { useEffect, useRef } from "react";
 import { fetchTextEn, fetchTextEs } from "../../../hooks/Img2/FetchText";
 import { gsap } from "gsap";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 export const GetTexts2 = () => {
   const { title, setTitle, setBody } = useTextStore();
@@ -70,9 +70,9 @@ export const GetTexts2 = () => {
 
   return (
     <>
-       <h2 className="text-white text-3xl lg:text-4xl absolute font-[Helveticalight] tracking-[3vw] lg:tracking-[6vw] mix-blend-difference">
-            {title}
-          </h2>
+      <h2 className="text-white text-3xl lg:text-4xl absolute font-[Helveticalight] tracking-[3vw] lg:tracking-[6vw] mix-blend-difference">
+        {title}
+      </h2>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useTextStore } from "../../store/textLeft/UseText";
 import { useEffect, useRef } from "react";
 import { fetchTextEn, fetchTextEs } from "../../hooks/textLeft/FetchText";
 import { gsap } from "gsap";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 export const GetTextLeft = () => {
   const { title, setTitle, setBody } = useTextStore();

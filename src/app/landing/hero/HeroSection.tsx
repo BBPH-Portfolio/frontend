@@ -55,23 +55,24 @@ const HeroSection = () => {
 
   return (
     <section className="h-screen flex items-center justify-center relative">
+
+      <div className="absolute top-[13rem] left-0 bg-black dark:bg-white p-2">
+        <p className="text-white dark:text-black italic text-sm">LETS CREATE</p>
+      </div>
+
       <h1
-        className="Title text-[3rem] xl:text-[8rem] sm:text-[6rem] text-black dark:text-color1 font-[HelveticaExtraBold] leading-[6.5rem] overflow-hidden "
+        className="Title text-[3rem] xl:text-[7rem] sm:text-[4.5rem] text-black dark:text-color1 font-[HelveticaExtraBold] overflow-hidden text-center"
         ref={titleRef}
       >
-        <span className="block ml-[3.6rem] overflow-hidden">
-          <span>LIGHTING IS</span>
-        </span>
-        <br />
-        <span className="block overflow-hidden mt-[-9.5rem] xl:mt-[-6rem] sm:mt-[-7.5rem]">
-          <span>EVERYTHING</span>
+        <span className="block overflow-hidden">
+          <span>in light we trust</span>
         </span>
       </h1>
 
       <GetText />
       {token && <DialogText />}
 
-      <GetTextLeft/>
+      <GetTextLeft />
       {token && <DialogTextLeft />}
     </section>
   );

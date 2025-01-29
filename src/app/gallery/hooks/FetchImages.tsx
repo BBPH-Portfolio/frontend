@@ -16,7 +16,7 @@ export interface ImageData2 {
 
 export const fetchImagesUrl = async (): Promise<ImageData[] | null> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/Commercial`);
     if (response.ok) {
       const data = await response.json();
 
@@ -63,7 +63,7 @@ export const uploadFileImage = async (file: File, id: string) => {
 export const deleteImage = async (id: string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait/image/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/categories/Commercial/image/${id}`,
       {
         method: "DELETE",
       }
@@ -85,7 +85,7 @@ export const AddImage = async (file: File) => {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/categories/Portrait/image/`,
+      `${process.env.NEXT_PUBLIC_API_URL}/categories/Commercial/image/`,
       {
         method: "POST",
         body: formData,

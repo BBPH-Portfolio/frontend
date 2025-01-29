@@ -45,15 +45,15 @@ export const GetImage3 = () => {
             src={imageUrl}
             alt="Project"
             draggable={false}
-            className="object-cover h-[10rem] w-[20rem] mt-[2.3rem]"
+            className="object-cover"
             width={10000}
             height={10000}
           />
         </Link>
       ) : (
-        <div className="flex-col gap-4 w-full flex items-center justify-center">
-          <div className="w-20 h-20 border-4 border-transparent text-white text-4xl animate-spin flex items-center justify-center border-t-white rounded-full">
-            <div className="w-16 h-16 border-4 border-transparent text-black text-2xl animate-spin flex items-center justify-center border-t-black rounded-full"></div>
+        <div className="flex flex-col items-center justify-center w-full gap-4">
+          <div className="flex items-center justify-center w-20 h-20 text-4xl text-white border-4 border-transparent rounded-full animate-spin border-t-white">
+            <div className="flex items-center justify-center w-16 h-16 text-2xl text-black border-4 border-transparent rounded-full animate-spin border-t-black"></div>
           </div>
         </div>
       )}

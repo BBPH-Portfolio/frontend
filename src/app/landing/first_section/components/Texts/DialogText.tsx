@@ -11,7 +11,7 @@ import { uploadFileTextEn, uploadFileTextEs } from "../../hooks/FetchText";
 import { useTextStore } from "../../store/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
-import { useLanguage } from "@/components/Navbar";
+import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogText: React.FC = () => {
   const { setTitle, setBody } = useTextStore();
@@ -37,7 +37,7 @@ const DialogText: React.FC = () => {
     }
 
     try {
-      const data = await UploadText(titleFetch, bodyFetch);;
+      const data = await UploadText(titleFetch, bodyFetch);
 
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);
@@ -52,7 +52,7 @@ const DialogText: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute top-20 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+        <div className="bg-[#29292965] absolute top-24 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
           <Pencil className="text-white w-10" />
         </div>
       </DialogTrigger>

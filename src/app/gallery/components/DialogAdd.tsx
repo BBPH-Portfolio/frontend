@@ -32,7 +32,6 @@ export const DialogAdd = () => {
       if (updatedImages) {
         setImageData(updatedImages);
       }
-
     } catch (error) {
       console.error(error);
     }
