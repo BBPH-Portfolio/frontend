@@ -21,7 +21,7 @@ const LandScapeSection = () => {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [token, setToken] = useState(false);
-  const [currentSection, setCurrentSection] = useState(1);
+  const [, setCurrentSection] = useState(1);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -32,7 +32,7 @@ const LandScapeSection = () => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 300px)", () => {
+      mm.add("(min-width: 640px)", () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: triggerRef.current,
@@ -73,8 +73,18 @@ const LandScapeSection = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden mt-[20rem] relative landscape-section" ref={triggerRef}>
-      <div ref={sectionRef} className="flex w-[300vw] h-screen">
+    <section
+      className="overflow-hidden mt-[20rem] relative landscape-section"
+      ref={triggerRef}
+    >
+      <div className="sm:hidden">
+        <div className="relative flex items-center justify-center w-screen h-screen">
+          <GetImage1 />
+          {token && <DialogImage />}
+        </div>
+      </div>
+
+      <div ref={sectionRef} className="hidden sm:flex w-[300vw] h-screen">
         <div className="relative flex items-center justify-center w-screen h-full">
           <GetImage1 />
           {token && <DialogImage />}

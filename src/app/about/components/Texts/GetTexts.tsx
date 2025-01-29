@@ -70,9 +70,10 @@ export const GetTexts = () => {
 
   return (
     <>
-      <p className="text-xl" ref={bodyRef}>
-        <span className="mb-10 text-4xl font-[HelveticaExBold]">{title}</span>
-        <br /> <br />
+      <div className="pb-36">
+        <p className="text-5xl font-[HelveticaExBold] text-right">{title}</p>
+      </div>
+      <p className="text-xl text-justify break-words" ref={bodyRef}>
         {body}
       </p>
     </>

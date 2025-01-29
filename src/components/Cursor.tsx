@@ -68,6 +68,7 @@ const CustomCursor = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        backdropFilter: isHoveringLandscape ? "blur(5px)" : "blur(0px)",
       }}
     >
       {isHoveringLandscape && (

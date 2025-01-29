@@ -39,12 +39,8 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
-  const { setDarkMode, isDarkMode } = useDarkMode();
-  const { Spanish, setLanguage } = useLanguage();
+  const { isDarkMode } = useDarkMode();
   const { mixBlend } = useMixBlend();
-  const handleThemeChange = () => {
-    setDarkMode(!isDarkMode);
-  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -112,9 +108,6 @@ const Navbar = () => {
     }
   }, [showNavbar]);
 
-  const handleChangueLanguage = () => {
-    setLanguage(!Spanish);
-  };
 
   const router = useRouter();
 

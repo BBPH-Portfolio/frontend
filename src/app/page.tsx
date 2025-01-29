@@ -24,7 +24,7 @@ const useStoreLoading = create<IStore>((set) => ({
 
 export default function Home() {
   const { loading, setLoading } = useStoreLoading();
-  const { mixBlend, setMixBlend } = useMixBlend();
+  const { mixBlend, } = useMixBlend();
 
   useEffect(() => {
     const hasLoaded = sessionStorage.getItem("hasLoaded");
@@ -58,9 +58,9 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="z-[2] fixed w-[88%] mx-auto max-w-[90.75rem] top-12 justify-end flex items-center">
+        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
           <DropDonwn />
-        </div>
+        </div> 
         <div
           className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
             mixBlend ? "mix-blend-difference" : ""

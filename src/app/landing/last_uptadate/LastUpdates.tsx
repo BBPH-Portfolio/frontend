@@ -1,4 +1,3 @@
-
 import { GetImage1 } from "./components/Img1/Images/GetImage";
 import { useState, useEffect } from "react";
 import { DialogImage } from "./components/Img1/Images/DialogImage";
@@ -27,75 +26,71 @@ const LastUpdates = () => {
 
   return (
     <>
-      <div className="h-auto mt-28 mb-20 text-black dark:text-color1">
-        <div className="w-[88%] mx-auto max-w-[100.75rem]">
-          <div className="w-full flex items-center justify-center mt-20">
-            <h2 className="font-[HelveticaExtraBold] text-5xl">
-              LATEST UPDATES
-            </h2>
-          </div>
+   <div className="h-auto mb-20 text-black mt-36 dark:text-color1">
+  <div className="w-[88%] mx-auto max-w-[100.75rem]">
+    <div className="flex items-center justify-center w-full mt-20">
+      <h2 className="font-[HelveticaExtraBold] text-4xl sm:text-5xl md:text-6xl">
+        updates
+      </h2>
+    </div>
 
-          <div className="grid grid-cols-2 grid-rows-1 gap-0 mt-[5rem] xl:grid-cols-4">
-            <div className="flex flex-col border-r border-black dark:border-white h-auto mb-20 xl:mb-0">
-              <section className="p-3 pr-5 relative">
-                <div>
-                  <GetTexts />
-                  {token && <DialogText />}
-                </div>
-
-                <div className="flex justify-center xl:block relative">
-                  <GetImage1 />
-                  {token && <DialogImage />}
-                </div>
-              </section>
-            </div>
-
-            <div className="flex flex-col border-black dark:border-white h-auto xl:border-r">
-              <section className="p-5">
-                <div className="w-full flex justify-center relative">
-                  <GetImage2 />
-                  {token && <DialogImage2 />}
-                </div>
-                <div className="relative">
-                  <GetTexts2 />
-                  {token && <DialogText2 />}
-                </div>
-              </section>
-            </div>
-
-            <div className="hidden flex-col border-r border-black dark:border-white h-auto lg:flex">
-              <section className="p-5">
-                <div className="w-full flex justify-center relative">
-                  <GetImage3 />
-                  {token && <DialogImage3 />}
-                </div>
-                <div className="relative">
-                  <GetTexts3 />
-                  {token && <DialogText3 />}
-                </div>
-              </section>
-            </div>
-
-            <div className="hidden flex-col border-black dark:border-white h-auto xl:border-r lg:flex">
-              <section className="p-5">
-                <div className="relative">
-                  <GetTexts4 />
-                  {token && <DialogText4 />}
-                </div>
-
-                <div className="pt-5 flex">
-                  <div className="h-0 w-full border border-black dark:border-white my-10"></div>
-                </div>
-
-                <div className="relative">
-                  <GetTexts5 />
-                  {token && <DialogText5 />}
-                </div>
-              </section>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-4 mt-10 sm:mt-20 gap-6 sm:gap-10 md:gap-14">
+      
+      <div className="relative flex justify-center aspect-square md:col-start-1 md:row-start-1">
+        <div>
+          <GetTexts />
+          {token && <DialogText />}
         </div>
       </div>
+
+  
+      <div className="relative flex items-center justify-center md:col-start-1 md:row-start-2">
+        <GetImage1 />
+        {token && <DialogImage />}
+      </div>
+
+    
+      <div className="relative flex justify-center md:col-start-2 md:row-start-2">
+        <div>
+          <GetTexts2 />
+          {token && <DialogText2 />}
+        </div>
+      </div>
+
+      <div className="relative flex items-center justify-center md:col-start-2 md:row-start-1">
+        <GetImage2 />
+        {token && <DialogImage2 />}
+      </div>
+
+      
+      <div className="relative hidden md:flex justify-center md:col-start-3 md:row-start-1">
+        <div>
+          <GetTexts3 />
+          {token && <DialogText3 />}
+        </div>
+      </div>
+
+      <div className="relative hidden md:flex items-center justify-center md:col-start-3 md:row-start-2">
+        <GetImage3 />
+        {token && <DialogImage3 />}
+      </div>
+
+      <div className="relative hidden md:flex justify-center md:col-start-4 md:row-start-1">
+        <div>
+          <GetTexts4 />
+          {token && <DialogText4 />}
+        </div>
+      </div>
+
+      <div className="relative hidden md:flex justify-center md:col-start-4 md:row-start-2">
+        <div>
+          <GetTexts5 />
+          {token && <DialogText5 />}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     </>
   );
 };

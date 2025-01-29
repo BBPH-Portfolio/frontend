@@ -1,39 +1,70 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-
+import React, { useState } from "react";
 interface ImageViewerProps {
   images: { id: string; url: string; alt: string }[];
   initialIndex: number;
   onClose: () => void;
 }
 
-const ImageViewer: React.FC<ImageViewerProps> = ({ images, initialIndex, onClose }) => {
+const ImageViewer: React.FC<ImageViewerProps> = ({
+  images,
+  initialIndex,
+  onClose,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : images.length - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : images.length - 1
+    );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex < images.length - 1 ? prevIndex + 1 : 0));
+    setCurrentIndex((prevIndex) =>
+      prevIndex < images.length - 1 ? prevIndex + 1 : 0
+    );
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-      <button onClick={onClose} className="absolute top-4 right-4 text-white cursor-none">
-        <X size={24} />
-      </button>
-      <button onClick={goToPrevious} className="absolute left-4 text-white">
-        <ChevronLeft size={24} />
-      </button>
+<div className="fixed inset-0 bg-white dark:bg-[#141414] flex items-center justify-center z-50">
+      <div
+        className="absolute 
+  left-[7%] 
+  top-[7rem] 
+  max-md:top-[9rem] 
+  text-black 
+  dark:text-white 
+  2xl:top-[22rem]"
+      >
+        <button className="italic cursor-none" onClick={goToPrevious}>
+          previous
+        </button>
+        {" /"}
+        <button className="italic cursor-none" onClick={goToNext}>
+          next
+        </button>
+      </div>
+
+      <div
+        className="absolute 
+  left-[15rem] 
+  top-[7rem] 
+  max-md:top-[9rem]   
+  2xl:top-[24rem] 
+  2xl:left-[7%]"
+      >
+        <button
+          onClick={onClose}
+          className="text-black dark:text-white cursor-none italic"
+        >
+          show thumbnails
+        </button>
+      </div>
+
       <img
         src={images[currentIndex].url}
         alt={images[currentIndex].alt}
-        className="aspect-[3/2] w-[70rem] object-cover"
+        className="aspect-[3/2] w-[50rem] object-cover"
       />
-      <button onClick={goToNext} className="absolute right-4 text-white cursor-none">
-        <ChevronRight size={24} />
-      </button>
     </div>
   );
 };

@@ -52,7 +52,7 @@ const DialogText: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute top-20 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+        <div className="bg-[#29292965] absolute top-24 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
           <Pencil className="text-white w-10" />
         </div>
       </DialogTrigger>

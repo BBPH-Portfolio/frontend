@@ -57,7 +57,7 @@ const HeroSection = () => {
     <section className="h-screen flex items-center justify-center relative">
 
       <div className="absolute top-[13rem] left-0 bg-black dark:bg-white p-2">
-        <p className="text-white dark:text-black italic text-sm">LET'S CREATE</p>
+        <p className="text-white dark:text-black italic text-sm">LETS CREATE</p>
       </div>
 
       <h1

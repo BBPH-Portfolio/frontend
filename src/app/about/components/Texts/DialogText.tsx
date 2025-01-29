@@ -52,8 +52,8 @@ const DialogText: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute top-20 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
-          <Pencil className="text-white w-10" />
+        <div className="bg-[#29292965] absolute top-0 left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+          <Pencil className="w-10 text-white" />
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] text-black dark:text-color1">
@@ -79,7 +79,7 @@ const DialogText: React.FC = () => {
           <Input
             name="titleFetch"
             placeholder="Reemplazar titulo..."
-            className="mb-5 mt-2"
+            className="mt-2 mb-5"
             type="text"
             maxLength={70}
             id="titleFetch"
@@ -88,13 +88,13 @@ const DialogText: React.FC = () => {
           <Input
             name="bodyFetch"
             placeholder="Reemplazar body..."
-            className="mb-5 mt-2"
+            className="mt-2 mb-5"
             type="text"
             maxLength={150}
             id="bodyFetch"
           />
           <button
-            className="text-color1 dark:text-black bg-black dark:bg-white p-3 rounded-lg w-full"
+            className="w-full p-3 bg-black rounded-lg text-color1 dark:text-black dark:bg-white"
             type="submit"
           >
             Reemplazar texto

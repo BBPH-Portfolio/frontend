@@ -4,7 +4,11 @@ import { fetchTextEn, fetchTextEs } from "../../hooks/Texts/text2/FetchText";
 import { gsap } from "gsap";
 import { useLanguage } from "@/components/navbar/Navbar";
 
-export const GetTexts2 = () => {
+export const GetTexts2 = ({
+  placement,
+}: {
+  placement: "trigger" | "content";
+}) => {
   const { title, body, setTitle, setBody } = useTextStore();
   const { Spanish } = useLanguage();
 
@@ -68,14 +72,19 @@ export const GetTexts2 = () => {
     }
   }, []);
 
-  return (
-    <>
+  if (placement === "trigger") {
+    return (
       <h2
         className="text-2xl mb-2 font-[HelveticaMedium] text-left"
         ref={textRef}
       >
         {title}
       </h2>
+    );
+  }
+
+  return (
+    <>
       <p
         className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B] text-left"
         ref={bodyRef}

@@ -70,13 +70,15 @@ export const GetTexts3 = () => {
 
   return (
     <>
-      <h3
-        className="text-xl sm:text-2xl font-[HelveticaMedium] py-5"
-        ref={textRef}
-      >
-        {title}
-      </h3>
-      <p className="text-sm sm:text-[1rem] pb-5 break-words" ref={bodyRef}>
+      <div className="h-auto pb-10 mt-20">
+        <h3
+          className="text-xl sm:text-2xl font-[HelveticaMedium]"
+          ref={textRef}
+        >
+          {title}
+        </h3>
+      </div>
+      <p className="text-sm sm:text-[1rem] break-words text-justify" ref={bodyRef}>
         {body}
       </p>
     </>
