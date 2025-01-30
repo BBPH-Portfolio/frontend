@@ -32,7 +32,7 @@ const About = () => {
       </div>
 
       <section className="w-[88%] mx-auto max-w-[90.75rem] text-black dark:text-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-4 mt-[40rem] lg:mt-[20rem] mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-4 mt-[6rem] lg:mt-[20rem] mb-20">
           <div>
             <div className="relative flex flex-col mt-64">
               <GetTexts />
@@ -40,7 +40,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center">
+          <div className="relative flex justify-center mt-10 sm:mt-0">
             <GetImage />
             {token && <DialogImage />}
           </div>

@@ -1,10 +1,14 @@
-import { useTextStore } from "../../store/Texts/text1/UseText";
+import { useTextStore } from "../../store/Texts/title/UseText";
 import { useEffect, useRef } from "react";
-import { fetchTextEn, fetchTextEs } from "../../hooks/Texts/text1/FetchText";
+import { fetchTextEn, fetchTextEs } from "../../hooks/Texts/title/FetchText";
 import { gsap } from "gsap";
 import { useLanguage } from "@/components/navbar/Navbar";
 
-export const GetTexts1 = ({ placement }: { placement: 'trigger' | 'content' }) => {
+export const GetTextsTitle = ({
+  placement,
+}: {
+  placement: "trigger" | "content";
+}) => {
   const { title, body, setTitle, setBody } = useTextStore();
   const { Spanish } = useLanguage();
 
@@ -68,9 +72,12 @@ export const GetTexts1 = ({ placement }: { placement: 'trigger' | 'content' }) =
     }
   }, []);
 
-  if (placement === 'trigger') {
+  if (placement === "trigger") {
     return (
-      <h2 className="text-xl sm:text-2xl mb-2 font-[HelveticaMedium] text-left">
+      <h2
+        className="font-[HelveticaExtraBold] text-3xl sm:text-6xl text-right"
+        ref={textRef}
+      >
         {title}
       </h2>
     );
@@ -79,7 +86,7 @@ export const GetTexts1 = ({ placement }: { placement: 'trigger' | 'content' }) =
   return (
     <>
       <p
-        className="md:text-[1rem] text-[0.95rem] text-[#8B8B8B] text-left"
+        className="text-[0.95rem] sm:text-[1.3rem] pt-[4rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify"
         ref={bodyRef}
       >
         {body}

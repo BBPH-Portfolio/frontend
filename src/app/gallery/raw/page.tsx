@@ -71,7 +71,7 @@ const Gallery = () => {
           </Link>
         </div>
         <div className="mt-[4rem] font-[DmSansMedium] md:text-[1rem] text-sm">
-          <Link href="/gallery/raw" className="text-black dark:text-color1 cursor-none">
+          <Link href="/gallery/raw" className="text-black cursor-pointer dark:text-color1">
             RAW
           </Link>
         </div>
@@ -80,16 +80,16 @@ const Gallery = () => {
 
       <section className="w-[88%] mx-auto max-w-[125.75rem]">
         <section className="w-full h-auto mb-[5rem] mt-60">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {orderedImages.map((image, index) => (
               <div
                 key={image.id}
-                className="overflow-hidden relative w-full aspect-[3/2]"
+                className="overflow-hidden relative w-[100%] aspect-[3/2]"
               >
                 <img
                   src={image.url}
                   alt={image.alt || `Image ${image.id}`}
-                  className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105"
+                  className="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105"
                   draggable={false}
                   onClick={() => openImageViewer(index)}
                 />

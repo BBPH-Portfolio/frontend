@@ -124,14 +124,14 @@ const Navbar = () => {
         <div className="flex justify-center">
           <div className="text-left md:text-center" onClick={handleNav}>
             <Link
-              className={`font-[HelveticaExBold] text-[3rem] cursor-none select-none 
+              className={`font-[HelveticaExBold] md:text-[3rem] text-[2rem] cursor-none select-none 
                 ${mixBlend ? "text-white" : "text-black dark:text-white"}`}
               href={"/"}
             >
               BBPH
             </Link>
             <p
-              className={`font-[HelveticaThin] tracking-[7.3px] text-[8px] mt-[8px] pl-[3.7px] select-none ${
+              className={`font-[HelveticaThin] md:tracking-[7.3px] tracking-[3.8px] md:text-[8px] text-[7px] mt-[8px] pl-[3.7px] select-none ${
                 mixBlend ? "text-white" : "text-black dark:text-white"
               }`}
             >

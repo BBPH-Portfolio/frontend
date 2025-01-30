@@ -40,3 +40,23 @@ export const fetchImageUrl = async (): Promise<string | null> => {
     const data = await response.json();
     return data;
   };
+
+  export const uploadFileImageServices = async (file: File, imageId: string) => {
+    const formData = new FormData();
+    formData.append('file', file);
+  
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/images/${imageId}`,
+      {
+        method: "PATCH",
+        body: formData,
+      }
+    );
+  
+    if (!response.ok) {
+      throw new Error("Error al reemplazar la imagen");
+    }
+  
+    const data = await response.json();
+    return data;
+  };

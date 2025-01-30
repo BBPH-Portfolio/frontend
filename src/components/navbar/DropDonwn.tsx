@@ -112,7 +112,7 @@ const DropDonwn = () => {
     <>
       <button
         onClick={handleChangueLanguage}
-        className="text-black dark:text-white cursor-none sm:mr-5 mr-0 sm:relative sm:top-0 absolute top-[6rem]"
+        className="text-black dark:text-white cursor-none sm:mr-5 mr-0 sm:relative sm:top-0 absolute top-[6rem] md:text-[1rem] text-sm"
         ref={buttonref}
       >
         {Spanish ? "english" : "español"}
@@ -155,34 +155,34 @@ const DropDonwn = () => {
             <div className="space-y-8">
               <Link
                 href="/about"
-                className="block font-sans font-bold transition-all duration-500 text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
+                className="block font-sans text-6xl font-bold transition-all duration-500 md:text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
               >
                 notes
               </Link>
               <Link
                 href="/gallery"
-                className="block font-sans font-bold transition-all duration-500 text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
+                className="block font-sans text-6xl font-bold transition-all duration-500 md:text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
               >
                 gallery
               </Link>
               <a
                 href="#services"
                 onClick={(e) => handleNavClick(e, "services")}
-                className="block font-sans font-bold transition-all duration-500 text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
+                className="block font-sans text-6xl font-bold transition-all duration-500 md:text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
               >
                 services
               </a>
               <a
                 href="#updates"
                 onClick={(e) => handleNavClick(e, "updates")}
-                className="block font-sans font-bold transition-all duration-500 text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
+                className="block font-sans text-6xl font-bold transition-all duration-500 md:text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
               >
                 updates
               </a>
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "contact")}
-                className="block font-sans font-bold transition-all duration-500 text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
+                className="block font-sans text-6xl font-bold transition-all duration-500 md:text-8xl hover:text-gray-200 cursor-none dark:hover:text-gray-400"
               >
                 contact
               </a>

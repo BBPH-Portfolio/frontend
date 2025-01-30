@@ -9,24 +9,38 @@ import {
 } from "@/components/ui/dialog";
 import { Pencil } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { uploadFileImage } from "../../hooks/FetchImage";
+import { uploadFileImage, useImageStoreId } from "../../hooks/FetchImage";
 import { useImageStore } from "../../store/UseImageStore";
 import { toast } from "react-toastify";
 
 export const DialogImage = () => {
   const { setImageUrl } = useImageStore();
+  const { imageId } = useImageStoreId();
 
   const handleFileUpload = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!imageId) {
+      console.error("El ID de la imagen es null. No se puede proceder con la subida.");
+      toast.error("Error: No se ha seleccionado una imagen válida.");
+      return;
+    }
+  
     const fileInput = e.currentTarget.picture as HTMLInputElement;
     const file = fileInput.files?.[0];
+  
 
-    if (!file) return;
+    if (!file) {
+      console.error("No se ha seleccionado ningún archivo.");
+      toast.error("Error: No se ha seleccionado ningún archivo.");
+      return;
+    }
+  
 
-    const uploadPromise = uploadFileImage(file).then((data) => {
+    const uploadPromise = uploadFileImage(file, imageId).then((data) => {
       setImageUrl(data.url);
     });
-
+  
     toast
       .promise(uploadPromise, {
         pending: "Reemplazando imagen...",

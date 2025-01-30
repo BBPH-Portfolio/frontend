@@ -51,7 +51,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className="hidden custom-cursor md:block"
+      className="hidden custom-cursor xl:flex"
       style={{
         position: "fixed",
         top: 0,
@@ -65,15 +65,14 @@ const CustomCursor = () => {
         zIndex: 9999,
         mixBlendMode: "difference",
         transition: "width 0.3s, height 0.3s",
-        display: "flex",
         alignItems: "center",
         justifyContent: "center",
         backdropFilter: isHoveringLandscape ? "blur(5px)" : "blur(0px)",
       }}
     >
       {isHoveringLandscape && (
-        <span className="italic font-medium text-center text-black select-none">
-          keep scrolling
+        <span className="hidden italic font-medium text-center text-black select-none md:block">
+          keep scrolling down
         </span>
       )}
     </div>

@@ -38,20 +38,22 @@ export const GetImage = () => {
   return (
     <>
       {imageUrl.length > 0 ? (
+        <div className="w-full max-w-[95%] relative">
           <Image
-          src={imageUrl}
-          quality={100}
-          width={10000}
-          height={10000}
-          alt="Picture"
-          draggable={false}
-          ref={ImgRef}
-          className="w-[15rem] md:w-[43rem] sm:w-[25rem] h-[440px] sm:h-[730px] relative bottom-0 object-cover xl:absolute md:h-[900px]"
-        />
+            src={imageUrl}
+            quality={100}
+            width={10000}
+            height={10000}
+            alt="Picture"
+            draggable={false}
+            ref={ImgRef}
+            className="object-contain w-full h-full"
+          />
+        </div>
       ) : (
-        <div className="flex-col gap-4 w-full flex items-center justify-center">
-          <div className="w-20 h-20 border-4 border-transparent text-white text-4xl animate-spin flex items-center justify-center border-t-white rounded-full">
-            <div className="w-16 h-16 border-4 border-transparent text-black text-2xl animate-spin flex items-center justify-center border-t-black rounded-full"></div>
+        <div className="flex flex-col items-center justify-center w-full gap-4">
+          <div className="flex items-center justify-center w-20 h-20 text-4xl text-white border-4 border-transparent rounded-full animate-spin border-t-white">
+            <div className="flex items-center justify-center w-16 h-16 text-2xl text-black border-4 border-transparent rounded-full animate-spin border-t-black"></div>
           </div>
         </div>
       )}

@@ -11,11 +11,11 @@ const Footer = () => {
   const image = isDarkMode ? Logo : Logo_black;
 
   return (
-    <section className="h-screen pt-20 relative">
+    <section className="relative h-screen pt-20">
       <div className="w-[88%] mx-auto max-w-[100.75rem] text-black dark:text-color1 h-full">
-        <div className="w-full flex justify-between items-start flex-col md:flex-row md:items-center">
+        <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center">
           <div>
-            <h3 className="text-3xl font-[HelveticaMediumItalic]">
+            <h3 className="text-2xl md:text-3xl font-[HelveticaMediumItalic]">
               LET&apos;S CREATE
             </h3>
           </div>
@@ -25,20 +25,20 @@ const Footer = () => {
             </span>
 
             <div className="bg-black dark:bg-white w-[5rem] rounded-3xl text-color1 dark:text-black flex items-center justify-center">
-              <span className="text-lg py-2 font-[HelveticaExtraBold]">
+              <span className="md:text-lg text-[1rem] py-2 font-[HelveticaExtraBold]">
                 BOG
               </span>
             </div>
           </div>
         </div>
 
-        <div className="h-full w-full flex justify-center items-center ">
+        <div className="flex items-center justify-center w-full h-full ">
           <Image
             quality={100}
             src={image}
             alt="Logo"
             draggable={false}
-            className="w-[28rem]"
+            className="w-[18rem]"
           />
         </div>
 
