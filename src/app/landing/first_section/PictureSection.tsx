@@ -36,8 +36,8 @@ const PictureSection = () => {
               onMouseEnter={() => setHoverIndex(idx)}
               onMouseLeave={() => setHoverIndex(null)}
             >
-              <h2 className="relative z-10 transition-transform duration-300 group-hover:translate-x-2">{`0${idx + 1}`}</h2>
-              <h2 className="relative z-10 transition-transform duration-300 group-hover:-translate-x-2">{label}</h2>
+              <h2 className="relative z-10 transition-transform duration-300 group-hover:translate-x-2 sm:text-[1rem] text-sm">{`0${idx + 1}`}</h2>
+              <h2 className="relative z-10 transition-transform duration-300 group-hover:-translate-x-2 sm:text-[1rem] text-sm">{label}</h2>
               <div
                 className="absolute inset-0 transition-all duration-300 ease-out transform -translate-x-full bg-black opacity-0 dark:bg-white group-hover:opacity-20 group-hover:translate-x-0"
               />
@@ -45,7 +45,7 @@ const PictureSection = () => {
           </Link>
         ))}
         <div
-          className="absolute inset-0 transition-all duration-300 ease-out bg-black pointer-events-none dark:bg-white"
+          className="absolute inset-0 transition-all duration-500 ease-out bg-black pointer-events-none dark:bg-white"
           style={{
             opacity: hoverIndex !== null ? 1.2 : 0,
             transform: `translateY(${hoverIndex !== null ? hoverIndex * 144 : 0}px)`,
@@ -55,7 +55,7 @@ const PictureSection = () => {
       </div>
     </section>
 
-    <section className="relative flex justify-center xl:justify-end xl:mt-0">
+    <section className="relative flex justify-center mt-10 xl:justify-end xl:mt-0">
       <GetImage />
       {token && <DialogImage />}
     </section>

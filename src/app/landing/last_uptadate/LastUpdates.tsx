@@ -34,7 +34,7 @@ const LastUpdates = () => {
       </h2>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-4 mt-10 sm:mt-20 gap-6 sm:gap-10 md:gap-14">
+    <div className="grid grid-cols-1 gap-6 mt-10 md:grid-cols-4 sm:mt-20 sm:gap-10 md:gap-14">
       
       <div className="relative flex justify-center aspect-square md:col-start-1 md:row-start-1">
         <div>
@@ -63,26 +63,26 @@ const LastUpdates = () => {
       </div>
 
       
-      <div className="relative hidden md:flex justify-center md:col-start-3 md:row-start-1">
+      <div className="relative justify-center hidden md:flex md:col-start-3 md:row-start-1">
         <div>
           <GetTexts3 />
           {token && <DialogText3 />}
         </div>
       </div>
 
-      <div className="relative hidden md:flex items-center justify-center md:col-start-3 md:row-start-2">
+      <div className="relative items-center justify-center hidden md:flex md:col-start-3 md:row-start-2">
         <GetImage3 />
         {token && <DialogImage3 />}
       </div>
 
-      <div className="relative hidden md:flex justify-center md:col-start-4 md:row-start-1">
+      <div className="relative justify-center hidden md:flex md:col-start-4 md:row-start-1">
         <div>
           <GetTexts4 />
           {token && <DialogText4 />}
         </div>
       </div>
 
-      <div className="relative hidden md:flex justify-center md:col-start-4 md:row-start-2">
+      <div className="relative justify-center hidden md:flex md:col-start-4 md:row-start-2">
         <div>
           <GetTexts5 />
           {token && <DialogText5 />}

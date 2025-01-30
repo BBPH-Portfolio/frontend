@@ -72,7 +72,7 @@ export const GetTexts3 = ({ placement }: { placement: "trigger" | "content" }) =
     if (placement === "trigger") {
       return (
         <h2
-        className="text-2xl mb-2 font-[HelveticaMedium] text-left"
+        className="sm:text-2xl text-xl mb-2 font-[HelveticaMedium] text-left"
         ref={textRef}
       >
         {title}
@@ -83,7 +83,7 @@ export const GetTexts3 = ({ placement }: { placement: "trigger" | "content" }) =
   return (
     <>
       <p
-        className="md:text-[1rem] text-[0.8rem] text-[#8B8B8B] text-left"
+        className="md:text-[1rem] text-[0.95rem] text-[#8B8B8B] text-left"
         ref={bodyRef}
       >
         {body}

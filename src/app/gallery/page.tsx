@@ -49,10 +49,9 @@ const Gallery = () => {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="fixed md:w-[23%] w-40 top-14 justify-end flex items-center z-[100] right-[6%]">
+        <div className="z-[100] fixed md:w-[23%] w-40 mx-auto max-w-[90.75rem] top-14 justify-end flex items-center right-[6%]">
           <DropDonwn />
-        </div>
-
+        </div> 
         <div
           className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
             mixBlend ? "mix-blend-difference" : ""
@@ -80,11 +79,11 @@ const Gallery = () => {
 
       <section className="w-[88%] mx-auto max-w-[125.75rem]">
         <section className="w-full h-auto mb-[5rem] mt-60">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {orderedImages.map((image, index) => (
               <div
                 key={image.id}
-                className="overflow-hidden relative w-[20rem] aspect-[3/2]"
+                className="overflow-hidden relative w-[100%] aspect-[3/2]"
               >
                 <img
                   src={image.url}

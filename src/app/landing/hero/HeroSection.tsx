@@ -54,14 +54,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="h-screen flex items-center justify-center relative">
+    <section className="relative flex items-center justify-center h-screen">
 
       <div className="absolute top-[13rem] left-0 bg-black dark:bg-white p-2">
-        <p className="text-white dark:text-black italic text-sm">LETS CREATE</p>
+        <p className="text-sm italic text-white dark:text-black">LETS CREATE</p>
       </div>
 
       <h1
-        className="Title text-[3rem] xl:text-[7rem] sm:text-[4.5rem] text-black dark:text-color1 font-[HelveticaExtraBold] overflow-hidden text-center"
+        className="Title text-[2.5rem] xl:text-[7rem] sm:text-[4.5rem] text-black dark:text-color1 font-[HelveticaExtraBold] overflow-hidden text-center"
         ref={titleRef}
       >
         <span className="block overflow-hidden">
