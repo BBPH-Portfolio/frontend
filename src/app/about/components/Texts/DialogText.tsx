@@ -71,7 +71,7 @@ const DialogText: React.FC = () => {
             <br />
             Los caracteres máximos de cada texto son:
             <br />
-            titulo: 30 caracteres, body: 250 caracteres.
+            titulo: 30 caracteres, body: 1500 caracteres.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
@@ -90,7 +90,7 @@ const DialogText: React.FC = () => {
             placeholder="Reemplazar body..."
             className="mt-2 mb-5"
             type="text"
-            maxLength={150}
+            maxLength={1500}
             id="bodyFetch"
           />
           <button

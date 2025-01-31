@@ -10,13 +10,13 @@ import { Pencil } from "lucide-react";
 import {
   uploadFileTextEn,
   uploadFileTextEs,
-} from "../../hooks/text4/FetchText";
-import { useTextStore } from "../../store/text4/UseText";
+} from "../../hooks/title/FetchText";
+import { useTextStore } from "../../store/title/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
-const DialogText4: React.FC = () => {
+const DialogTextTitle: React.FC = () => {
   const { setTitle, setBody } = useTextStore();
   const { Spanish } = useLanguage();
 
@@ -55,7 +55,7 @@ const DialogText4: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute top-0 right-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+        <div className="bg-[#29292965] absolute left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
           <Pencil className="text-white w-10" />
         </div>
       </DialogTrigger>
@@ -74,7 +74,7 @@ const DialogText4: React.FC = () => {
             <br />
             Los caracteres máximos de cada texto son:
             <br />
-            titulo: 100 caracteres, body: 400 caracteres.
+            titulo: 60 caracteres
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
@@ -84,16 +84,8 @@ const DialogText4: React.FC = () => {
             placeholder="Reemplazar titulo..."
             className="mb-5 mt-2"
             type="text"
-            maxLength={100}
+            maxLength={60}
             id="titleFetch"
-          />
-          <label htmlFor="bodyFetch">Body:</label>
-          <textarea
-            name="bodyFetch"
-            placeholder="Reemplazar body..."
-             className="mb-5 mt-2 w-full p-2 border rounded-lg resize-y min-h-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
-            maxLength={400}
-            id="bodyFetch"
           />
           <button
             className="text-color1 dark:text-black bg-black dark:bg-white p-3 rounded-lg w-full"
@@ -107,4 +99,4 @@ const DialogText4: React.FC = () => {
   );
 };
 
-export default DialogText4;
+export default DialogTextTitle;

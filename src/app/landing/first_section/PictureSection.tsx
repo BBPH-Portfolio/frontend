@@ -22,13 +22,13 @@ const PictureSection = () => {
   }, []);
 
   return (
-    <section className="h-auto grid grid-cols-1 gap-4 text-black dark:text-color1 xl:grid-cols-2 mb-[10rem]">
+    <section className="h-auto grid grid-cols-1 gap-24 text-black dark:text-color1 xl:grid-cols-2 mb-[10rem]">
       
-    <section className="pt-40 relative h-[55rem]">
+    <section className="pt-20 relative h-[55rem]">
       <GetTexts />
       {token && <DialogText />}
 
-      <div className="relative mt-[5rem]">
+      <div className="relative mt-[7rem]">
         {sections.map(({ label, route }, idx) => (
           <Link href={route} key={label}>
             <div

@@ -13,7 +13,6 @@ import {
 } from "../../hooks/textLeft/FetchText";
 import { useTextStore } from "../../store/textLeft/UseText";
 import { toast } from "react-toastify";
-import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogTextLeft: React.FC = () => {
@@ -78,11 +77,10 @@ const DialogTextLeft: React.FC = () => {
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
           <label htmlFor="titleFetch">Titulo:</label>
-          <Input
+          <textarea
             name="titleFetch"
             placeholder="Reemplazar titulo..."
-            className="mb-5 mt-2"
-            type="text"
+            className="mb-5 mt-2 w-full p-2 border rounded-lg resize-y min-h-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             maxLength={75}
             id="titleFetch"
           />

@@ -13,7 +13,6 @@ import {
 } from "../../hooks/textRight/FetchText";
 import { useTextStore } from "../../store/textRight/UseText";
 import { toast } from "react-toastify";
-import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogText: React.FC = () => {
@@ -74,17 +73,16 @@ const DialogText: React.FC = () => {
             <br />
             Los caracteres máximos de cada texto son:
             <br />
-            titulo: 35 caracteres
+            titulo: 50 caracteres
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
           <label htmlFor="titleFetch">Titulo:</label>
-          <Input
+          <textarea
             name="titleFetch"
             placeholder="Reemplazar titulo..."
-            className="mb-5 mt-2"
-            type="text"
-            maxLength={35}
+             className="mb-5 mt-2 w-full p-2 border rounded-lg resize-y min-h-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+            maxLength={50}
             id="titleFetch"
           />
           <button

@@ -100,7 +100,7 @@ const ServiceSection = () => {
                 className="border-b border-black dark:border-white"
                 onMouseEnter={() => handleHover(subsection)}
               >
-                <AccordionTrigger className="relative py-7 cursor-none">
+                <AccordionTrigger className="relative py-10 cursor-none">
                   <div className="flex justify-between w-full">
                     {index === 0 && <GetTexts1 placement="trigger" />}
                     {index === 1 && <GetTexts2 placement="trigger" />}
@@ -138,13 +138,13 @@ const ServiceSection = () => {
                         )}
                       </>
                     )}
-                    <h2 className="sm:text-2xl text-xl font-[HelveticaMedium]">
+                    <h2 className="sm:text-[1rem] text-sm tracking-[.3rem]">
                       {subsection}
                     </h2>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="pb-4">
+                  <p className="pb-4 sm:text-[1rem] text-sm">
                     {index === 0 && <GetTexts1 placement="content" />}
                     {index === 1 && <GetTexts2 placement="content" />}
                     {index === 2 && <GetTexts3 placement="content" />}

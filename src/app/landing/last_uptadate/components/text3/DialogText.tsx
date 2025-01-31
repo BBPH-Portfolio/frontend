@@ -88,11 +88,10 @@ const DialogText3: React.FC = () => {
             id="titleFetch"
           />
           <label htmlFor="bodyFetch">Body:</label>
-          <Input
+          <textarea
             name="bodyFetch"
             placeholder="Reemplazar body..."
-            className="mb-5 mt-2"
-            type="text"
+             className="mb-5 mt-2 w-full p-2 border rounded-lg resize-y min-h-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             maxLength={700}
             id="bodyFetch"
           />
