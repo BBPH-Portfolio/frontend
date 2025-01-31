@@ -7,6 +7,7 @@ import { GetTexts } from "./components/Texts/GetTexts";
 import DialogText from "./components/Texts/DialogText";
 import DropDonwn from "@/components/navbar/DropDonwn";
 import { useMixBlend } from "@/store/store";
+import Switch from "@/components/Switch";
 
 const About = () => {
   const [token, setToken] = useState(false);
@@ -18,12 +19,13 @@ const About = () => {
   }, []);
   return (
     <>
+      <Switch />
       <div className="flex justify-center w-full">
         <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
           <DropDonwn />
         </div>
         <div
-          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
+          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end ${
             mixBlend ? "mix-blend-difference" : ""
           }`}
         >
@@ -40,7 +42,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center mt-10 sm:mt-0">
+          <div className="relative lg:sticky lg:top-20 h-fit max-h-screen flex justify-center mt-10 sm:mt-0">
             <GetImage />
             {token && <DialogImage />}
           </div>

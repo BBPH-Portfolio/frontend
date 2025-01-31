@@ -56,7 +56,7 @@ export const GetTexts3 = ({ placement }: { placement: "trigger" | "content" }) =
         {
           opacity: 1,
           y: 0,
-          duration: 1.5,
+          duration: 1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: textRef.current,
@@ -72,7 +72,7 @@ export const GetTexts3 = ({ placement }: { placement: "trigger" | "content" }) =
     if (placement === "trigger") {
       return (
         <h2
-        className="sm:text-2xl text-xl mb-2 font-[HelveticaMedium] text-left"
+        className="sm:text-[1rem] text-sm tracking-[.3rem] mb-2 text-left"
         ref={textRef}
       >
         {title}

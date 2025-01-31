@@ -9,6 +9,7 @@ import { DialogAdd } from "./components/DialogAdd";
 import ImageViewer from "./components/ViewerImg";
 import DropDonwn from "@/components/navbar/DropDonwn";
 import { useMixBlend } from "@/store/store";
+import Switch from "@/components/Switch";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -48,10 +49,11 @@ const Gallery = () => {
 
   return (
     <>
-      <div className="flex justify-center w-full">
-        <div className="z-[100] fixed md:w-[23%] w-40 mx-auto max-w-[90.75rem] top-14 justify-end flex items-center right-[6%]">
+    <Switch/>
+    <div className="flex justify-center w-full">       
+        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
           <DropDonwn />
-        </div> 
+        </div>
         <div
           className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
             mixBlend ? "mix-blend-difference" : ""

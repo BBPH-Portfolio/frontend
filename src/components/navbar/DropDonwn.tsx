@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useDarkMode, useLanguage } from "./Navbar";
 import { useRouter, usePathname } from "next/navigation";
-import Switch from "../Switch";
+
 
 const DropDonwn = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,12 +112,11 @@ const DropDonwn = () => {
     <>
       <button
         onClick={handleChangueLanguage}
-        className="text-black dark:text-white cursor-none sm:mr-5 mr-0 sm:relative sm:top-0 absolute top-[6rem] md:text-[1rem] text-sm"
+        className="text-black dark:text-white cursor-none sm:mr-32 mr-0 sm:relative sm:-top-1 absolute top-[3rem] md:text-[1rem] text-sm"
         ref={buttonref}
       >
-        {Spanish ? "english" : "español"}
+        {Spanish ? "english" : "español"} 
       </button>
-      <Switch />
       <button
         onClick={handleMenuToggle}
         className="relative z-50 cursor-none"

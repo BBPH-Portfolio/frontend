@@ -72,7 +72,7 @@ export const GetTexts4 = () => {
     <>
       <div className="h-auto pb-10 mt-20">
         <h3
-          className="text-xl sm:text-2xl font-[HelveticaMedium]"
+          className="text-xl sm:text-2xl font-[HelveticaExtraBold]"
           ref={textRef}
         >
           {title}

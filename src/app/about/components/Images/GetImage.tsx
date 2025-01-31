@@ -19,22 +19,6 @@ export const GetImage = () => {
     loadImageUrl();
   }, [setImageUrl]);
 
-  useEffect(() => {
-    if (ImgRef.current) {
-      gsap.fromTo(
-        ImgRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          delay: 2,
-        }
-      );
-    }
-  }, []);
-
   return (
     <>
       {imageUrl.length > 0 ? (
@@ -46,7 +30,6 @@ export const GetImage = () => {
             height={10000}
             alt="Picture"
             draggable={false}
-            ref={ImgRef}
             className="object-contain w-full h-full"
           />
         </div>

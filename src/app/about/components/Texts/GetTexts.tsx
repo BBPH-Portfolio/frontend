@@ -71,9 +71,9 @@ export const GetTexts = () => {
   return (
     <>
       <div className="pb-36">
-        <p className="text-5xl font-[HelveticaExBold] text-right">{title}</p>
+        <p className="sm:text-6xl text-3xl font-[HelveticaExBold] text-right">{title}</p>
       </div>
-      <p className="text-xl text-justify break-words" ref={bodyRef}>
+      <p className="text-[0.95rem] sm:text-[1.3rem] text-justify break-words" ref={bodyRef}>
         {body}
       </p>
     </>

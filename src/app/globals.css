@@ -15,12 +15,8 @@ body {
 }
 
 html {
-  scrollbar-width: none;
+  scrollbar-width: thin;
   cursor: none;
-}
-
-img {
-  transition: opacity 0.3s ease-in-out;
 }
 
 @font-face {

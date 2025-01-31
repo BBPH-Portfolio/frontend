@@ -29,7 +29,7 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
     <div className="fixed inset-0 bg-white dark:bg-[#141414] flex items-center justify-center z-50">
       <div
         className="absolute 
-  left-[7%] 
+  left-[8.1%] 
   top-[7rem] 
   max-md:top-[9rem] 
   text-black 

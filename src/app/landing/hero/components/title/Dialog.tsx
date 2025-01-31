@@ -10,13 +10,13 @@ import { Pencil } from "lucide-react";
 import {
   uploadFileTextEn,
   uploadFileTextEs,
-} from "../../hooks/textLeft/FetchText";
-import { useTextStore } from "../../store/textLeft/UseText";
+} from "../../hooks/title/FetchText";
+import { useTextStore } from "../../store/title/UseText";
 import { toast } from "react-toastify";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
-const DialogTextLeft: React.FC = () => {
+const DialogTextTitle: React.FC = () => {
   const { setTitle, setBody } = useTextStore();
   const { Spanish } = useLanguage();
 
@@ -41,6 +41,7 @@ const DialogTextLeft: React.FC = () => {
 
     try {
       const data = await UploadText(titleFetch, bodyFetch);
+
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);
 
@@ -54,7 +55,7 @@ const DialogTextLeft: React.FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute top-[39rem] left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+        <div className="bg-[#29292965] absolute left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
           <Pencil className="text-white w-10" />
         </div>
       </DialogTrigger>
@@ -73,16 +74,17 @@ const DialogTextLeft: React.FC = () => {
             <br />
             Los caracteres máximos de cada texto son:
             <br />
-            titulo: 75 caracteres
+            titulo: 60 caracteres
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleTextUpload}>
           <label htmlFor="titleFetch">Titulo:</label>
-          <textarea
+          <Input
             name="titleFetch"
             placeholder="Reemplazar titulo..."
-            className="mb-5 mt-2 w-full p-2 border rounded-lg resize-y min-h-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
-            maxLength={75}
+            className="mb-5 mt-2"
+            type="text"
+            maxLength={60}
             id="titleFetch"
           />
           <button
@@ -97,4 +99,4 @@ const DialogTextLeft: React.FC = () => {
   );
 };
 
-export default DialogTextLeft;
+export default DialogTextTitle;

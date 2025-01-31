@@ -14,12 +14,24 @@ const Footer = () => {
     <section className="relative h-screen pt-20">
       <div className="w-[88%] mx-auto max-w-[100.75rem] text-black dark:text-color1 h-full">
         <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-[HelveticaMediumItalic]">
+          <div
+            className="bg-[#c38fff] p-2 md:p-4 
+      transition-all duration-300 ease-in-out 
+      hover:scale-105 hover:shadow-lg 
+   hover:bg-[#9436ff]"
+          >
+            <Link
+              className="text-sm md:text-lg italic text-white dark:text-black 
+      transition-colors duration-300 
+      group-hover:text-gray-300 dark:group-hover:text-gray-700 cursor-none"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
+              target="_blank"
+            >
               LET&apos;S CREATE
-            </h3>
+            </Link>
           </div>
-          <div className="flex absolute top-[14.5%] right-[16%]">
+
+          <div className="flex absolute md:top-[20.5%] top-[30%] right-[16%]">
             <span className="text-4xl">
               <TimeDisplay />
             </span>
@@ -44,7 +56,7 @@ const Footer = () => {
 
         <div className="w-full flex flex-col justify-between items-start mt-[-5em] ">
           <div className="font-[HelveticaHairline] tracking-[2px] flex md:flex-row flex-col">
-            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757]">
+            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
               <Link
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
                 target="_blank"
@@ -53,7 +65,7 @@ const Footer = () => {
                 Brianbecerraph@gmail.com
               </Link>
             </h3>
-            <h3 className="ml-0 transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5">
+            <h3 className="ml-0 transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105">
               <Link
                 href="https://wa.me/573134503971"
                 target="_blank"
@@ -66,7 +78,7 @@ const Footer = () => {
           </div>
 
           <div className="font-[HelveticaHairline] tracking-[2px] absolute right-[2rem] xl:right-[10rem] xl:top-[60%] sm:flex hidden">
-            <span className="mr-5 transition-all duration-300 ease-in-out hover:text-[#575757]">
+            <span className="mr-5 transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
               <Link
                 href="https://www.instagram.com/bbphstudio/"
                 target="_blank"
@@ -75,7 +87,7 @@ const Footer = () => {
                 Instagram
               </Link>
             </span>
-            <span className="transition-all duration-300 ease-in-out hover:text-[#575757]">
+            <span className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
               <Link
                 href="https://www.linkedin.com/in/brianbecerrasabogal/"
                 target="_blank"
@@ -90,11 +102,11 @@ const Footer = () => {
             <Link
               href="https://www.instagram.com/bbphstudio/"
               target="_blank"
-              className="cursor-none"
+              className="cursor-none hover:scale-105"
             >
               Instagram
             </Link>
-            <span className="transition-all duration-300 ease-in-out hover:text-[#575757]">
+            <span className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
               <Link
                 href="https://www.linkedin.com/in/brianbecerrasabogal/"
                 target="_blank"
