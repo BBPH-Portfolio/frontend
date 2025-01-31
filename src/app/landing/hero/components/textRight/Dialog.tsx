@@ -13,7 +13,6 @@ import {
 } from "../../hooks/textRight/FetchText";
 import { useTextStore } from "../../store/textRight/UseText";
 import { toast } from "react-toastify";
-import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogText: React.FC = () => {

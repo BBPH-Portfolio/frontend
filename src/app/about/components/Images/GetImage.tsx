@@ -1,12 +1,10 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useImageStore } from "../../store/UseImageStore";
 import { fetchImageUrl } from "../../hooks/FetchImage";
-import { gsap } from "gsap";
 
 export const GetImage = () => {
   const { imageUrl, setImageUrl } = useImageStore();
-  const ImgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const loadImageUrl = async () => {
