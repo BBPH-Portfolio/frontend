@@ -64,7 +64,7 @@ export const DialogImage2 = () => {
           <DialogDescription>
             Puedes reemplazar la imagen, actualizar el enlace, o ambos. <br /> <br />
             Las medidas de la nueva imagen deben ser: <br />
-            224 px de alto y 280 px de ancho. <br/>
+            998 px de alto y 998 px de ancho. <br/>
             Para actualizar el Link, ten en cuenta que tiene que tener el formato completo ejemplo: https://
 
 

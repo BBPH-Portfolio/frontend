@@ -21,7 +21,9 @@ export const DialogImage = () => {
     e.preventDefault();
 
     if (!imageId) {
+      
       console.error("El ID de la imagen es null. No se puede proceder con la subida.");
+      console.log(imageId);
       toast.error("Error: No se ha seleccionado una imagen válida.");
       return;
     }
@@ -68,7 +70,7 @@ export const DialogImage = () => {
             Ten en cuenta que estás a punto de reemplazar la imagen, no podrás
             deshacer esta acción. <br /> <br />
             Las medidas de la nueva imagen deben ser: <br />
-            1305 px de alto y 724 px de ancho.
+            3300 px de alto y 2700 px de ancho.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleFileUpload}>

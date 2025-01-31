@@ -69,7 +69,7 @@ const ServiceSection = () => {
 
   return (
     <>
-      <section className="mt-[8rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-4 text-black dark:text-color1">
+      <section className="mb-[20rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-4 text-black dark:text-color1">
         <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">
           {currentImage && (
             <div className="w-full max-w-[90%] min-h-[400px] relative">

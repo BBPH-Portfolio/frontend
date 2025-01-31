@@ -26,7 +26,7 @@ const LastUpdates = () => {
 
   return (
     <>
-   <div className="h-auto mb-20 text-black mt-36 dark:text-color1">
+   <div className="h-auto mb-[15rem] text-black mt-36 dark:text-color1">
   <div className="w-[88%] mx-auto max-w-[100.75rem]">
     <div className="flex items-center justify-center w-full mt-20">
       <h2 className="font-[HelveticaExtraBold] text-4xl sm:text-5xl md:text-6xl">

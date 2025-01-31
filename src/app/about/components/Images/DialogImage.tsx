@@ -54,7 +54,7 @@ export const DialogImage = () => {
             Ten en cuenta que estás a punto de reemplazar la imagen, no podrás
             deshacer esta acción. <br /> <br />
             Las medidas de la nueva imagen deben ser: <br />
-            700 px de alto y 467 px de ancho.
+            3300 px de alto y 2700 px de ancho.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleFileUpload}>

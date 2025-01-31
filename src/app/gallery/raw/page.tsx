@@ -8,7 +8,8 @@ import { DialogImageGallery } from "./components/DialogImageGallery";
 import { DialogAdd } from "./components/DialogAdd";
 import ImageViewer from "./components/ViewerImg";
 import DropDonwn from "@/components/navbar/DropDonwn";
-import { useMixBlend } from "@/store/store";
+import Switch from "@/components/Switch";
+import { ChevronLeft } from "lucide-react";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -18,7 +19,7 @@ const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
-  const { mixBlend } = useMixBlend();
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(true);
@@ -47,31 +48,34 @@ const Gallery = () => {
 
   return (
     <>
-      <div className="flex justify-center w-full">
-        <div className="fixed md:w-[23%] w-40 top-14 justify-end flex items-center z-[100] right-[6%]">
+    <Switch/>
+    <div className="flex justify-center w-full ">
+        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
           <DropDonwn />
         </div>
 
-        <div
-          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
-            mixBlend ? "mix-blend-difference" : ""
-          }`}
-        >
+        <div className="absolute hidden">
           <Navbar />
+        </div>
+
+        <div className="absolute top-12 left-[11.5%]">
+          <Link href="/" className="cursor-none">
+            <ChevronLeft className="size-10 text-black dark:text-white hover:scale-125 transition-all duration-300" />
+          </Link>
         </div>
       </div>
 
-      <div className="md:w-[23%] w-40 flex md:pt-[0rem] absolute md:relative left-[6%] top-32 md:top-0 justify-between">
-        <div className="mt-[4rem] text-[#8B8B8B] font-[DmSansMedium] md:text-[1rem] text-sm">
+      <div className="md:w-[23%] w-40 flex md:pt-[0rem] absolute md:relative left-[15%] top-32 justify-between">
+        <div className="mt-[4rem] text-[#8B8B8B] md:text-[1rem] text-sm">
           <Link
             href="/gallery"
-            className="cursor-none mr-[10%] text-[#8B8B8B]"
+            className="text-[#8B8B8B] cursor-none mr-[10%] tracking-[.3rem]"
           >
             COMMERCIAL
           </Link>
         </div>
-        <div className="mt-[4rem] font-[DmSansMedium] md:text-[1rem] text-sm">
-          <Link href="/gallery/raw" className="text-black cursor-pointer dark:text-color1">
+        <div className="mt-[4rem] md:text-[1rem] text-sm">
+          <Link href="/gallery/raw" className="text-black dark:text-color1 cursor-none tracking-[.3rem]">
             RAW
           </Link>
         </div>

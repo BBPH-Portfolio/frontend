@@ -108,7 +108,6 @@ const Navbar = () => {
     }
   }, [showNavbar]);
 
-
   const router = useRouter();
 
   const handleNav = () => {
@@ -129,14 +128,14 @@ const Navbar = () => {
               href={"/"}
             >
               BBPH
+              <p
+                className={`font-[HelveticaThin] md:tracking-[7.3px] tracking-[3.8px] md:text-[8px] text-[7px] pl-[7px] select-none${
+                  mixBlend ? "text-white" : "text-black dark:text-white"
+                }`}
+              >
+                LIGHT STUDIO
+              </p>
             </Link>
-            <p
-              className={`font-[HelveticaThin] md:tracking-[7.3px] tracking-[3.8px] md:text-[8px] text-[7px] mt-[8px] pl-[4.4px] select-none ${
-                mixBlend ? "text-white" : "text-black dark:text-white"
-              }`}
-            >
-              LIGHT STUDIO
-            </p>
           </div>
         </div>
       </nav>

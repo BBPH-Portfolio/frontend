@@ -20,7 +20,7 @@ export const fetchImageUrl = async (): Promise<string | null> => {
       const data = await response.json();
 
       const { setImageId } = useImageStoreId.getState();
-      setImageId(data.id);
+      setImageId(data._id);
 
       return data.url;
     } else {
