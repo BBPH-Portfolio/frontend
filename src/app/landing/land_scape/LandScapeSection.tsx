@@ -74,7 +74,7 @@ const LandScapeSection = () => {
 
   return (
     <section
-      className="overflow-hidden mt-[20rem] relative landscape-section"
+      className="overflow-hidden my-[20rem] relative landscape-section"
       ref={triggerRef}
     >
       <div className="sm:hidden">

@@ -141,7 +141,7 @@ const DialogText1: React.FC<DialogTextProps> = ({ imageId }) => {
               <br />
               <br />
               Las medidas de la nueva imagen deben ser:
-              784 px de alto y 435 px de ancho.
+              3300 px de alto y 2700 px de ancho. 
             </DialogDescription>
 
             <form onSubmit={handleFileUpload}>

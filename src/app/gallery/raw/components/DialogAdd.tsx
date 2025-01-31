@@ -32,7 +32,6 @@ export const DialogAdd = () => {
       if (updatedImages) {
         setImageData(updatedImages);
       }
-
     } catch (error) {
       console.error(error);
     }
@@ -50,10 +49,12 @@ export const DialogAdd = () => {
           <DialogTitle className="pb-3 text-center">
             Añadir nueva imagen
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-center">
             Ten en cuenta que estás a punto de añadir una imagen. <br />
-            Las medidas de la nueva imagen deben ser: <br />
-            293px de alto y 208px de ancho.
+            <span className="font-bold text-black">
+              Recuerda que si la quieres reemplazar, la nueva imagen debe tener
+              las mismas medidas que la actual.
+            </span>
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleAddImage}>
