@@ -72,14 +72,14 @@ export const GetTexts = () => {
     <>
       <div className="h-auto pb-10 mt-20">
         <h3
-          className="text-xl sm:text-2xl font-[HelveticaExtraBold] text-left"
+          className="text-xl sm:text-[1.7rem] font-[HelveticaExtraBold] text-left"
           ref={textRef}
         >
           {title}
         </h3>
       </div>
-      <p
-        className="text-sm sm:text-[1rem] break-words text-justify"
+      <p  
+        className="text-sm sm:text-[1rem] break-words text-justify" 
         ref={bodyRef}
       >
         {body}

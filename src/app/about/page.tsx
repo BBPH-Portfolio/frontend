@@ -46,6 +46,7 @@ const About = () => {
           <div>
             <div className="relative flex flex-col mt-64">
               <GetTexts />
+            
               {token && <DialogText />}
             </div>
           </div>

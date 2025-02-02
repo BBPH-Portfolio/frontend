@@ -129,7 +129,7 @@ const Navbar = () => {
             >
               BBPH
               <p
-                className={`font-[HelveticaThin] md:tracking-[7.3px] tracking-[3.8px] md:text-[8px] text-[7px] pl-[7px] select-none${
+                className={`font-[HelveticaThin] md:tracking-[7.3px] tracking-[3.8px] md:text-[8px] text-[7px] pl-[7px] select-none -mt-2 ${
                   mixBlend ? "text-white" : "text-black dark:text-white"
                 }`}
               >

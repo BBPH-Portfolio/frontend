@@ -31,13 +31,13 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="flex absolute md:top-[20.5%] top-[30%] right-[16%]">
-            <span className="text-4xl">
+          <div className="flex absolute md:top-[20.5%] top-[30%] sm:right-[16%] right-[5%]">
+            <span className="sm:text-4xl text-2xl">
               <TimeDisplay />
             </span>
 
             <div className="bg-black dark:bg-white w-[5rem] rounded-3xl text-color1 dark:text-black flex items-center justify-center">
-              <span className="md:text-lg text-[1rem] py-2 font-[HelveticaExtraBold]">
+              <span className="md:text-lg md:text-[1rem] text-[0.80rem] py-2 font-[HelveticaExtraBold]">
                 BOG
               </span>
             </div>
@@ -50,13 +50,13 @@ const Footer = () => {
             src={image}
             alt="Logo"
             draggable={false}
-            className="w-[18rem]"
+            className="sm:w-[18rem] w-[10rem]"
           />
         </div>
 
-        <div className="w-full flex flex-col justify-between items-start mt-[-5em] ">
+        <div className="w-full flex flex-col justify-between items-start mt-[-15rem] ">
           <div className="font-[HelveticaHairline] tracking-[2px] flex md:flex-row flex-col">
-            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
+            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105 ml-[11rem] sm:ml-0">
               <Link
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
                 target="_blank"
@@ -65,7 +65,7 @@ const Footer = () => {
                 Brianbecerraph@gmail.com
               </Link>
             </h3>
-            <h3 className="ml-0 transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105">
+            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105 sm:ml-0 ml-[16rem] sm:mt-0 mt-10">
               <Link
                 href="https://wa.me/573134503971"
                 target="_blank"
@@ -77,7 +77,7 @@ const Footer = () => {
             </h3>
           </div>
 
-          <div className="font-[HelveticaHairline] tracking-[2px] absolute right-[2rem] xl:right-[10rem] xl:top-[60%] sm:flex hidden">
+          <div className="font-[HelveticaHairline] tracking-[2px] absolute right-[2rem] xl:right-[10rem] xl:top-[45%] sm:flex hidden">
             <span className="mr-5 transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105">
               <Link
                 href="https://www.instagram.com/bbphstudio/"
@@ -98,11 +98,11 @@ const Footer = () => {
             </span>
           </div>
 
-          <div className="font-[HelveticaHairline] tracking-[2px] relative sm:hidden flex">
+          <div className="font-[HelveticaHairline] tracking-[2px] relative sm:hidden flex mt-20">
             <Link
               href="https://www.instagram.com/bbphstudio/"
               target="_blank"
-              className="cursor-none hover:scale-105"
+              className="cursor-none hover:scale-105 mr-10"
             >
               Instagram
             </Link>
