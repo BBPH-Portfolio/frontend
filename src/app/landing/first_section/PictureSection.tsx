@@ -12,7 +12,7 @@ const PictureSection = () => {
 
   const sections = [
     { label: "NOTES", route: "/about" },
-    { label: "COMMERCIAL", route: "/gallery/commercial" },
+    { label: "COMMERCIAL", route: "/gallery/" },
     { label: "RAW", route: "/gallery/raw" },
   ];
 
