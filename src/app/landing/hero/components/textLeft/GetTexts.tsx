@@ -45,7 +45,7 @@ export const GetTextLeft = () => {
     <>
       <span
         ref={servicesTextRef}
-        className="w-44 absolute text-[#8B8B8B] left-[0rem] bottom-32 overflow-hidden font-[HelveticaThinItalic] tracking-[.1rem] md:text-[1rem] text-sm"
+        className="w-44 absolute text-[#8B8B8B] left-[0rem] bottom-32 overflow-hidden font-[HelveticaThinItalic] tracking-[.1rem] md:text-[1rem] text-sm top-[74%]"
       >
         {title}
       </span>

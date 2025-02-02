@@ -46,7 +46,7 @@ export const GetTexts4 = ({
           ease: "power3.out",
           scrollTrigger: {
             trigger: textRef.current,
-            start: "top 70%",
+            start: "top 100%",
             toggleActions: "play none none none",
           },
         }
@@ -64,7 +64,7 @@ export const GetTexts4 = ({
           ease: "power3.out",
           scrollTrigger: {
             trigger: textRef.current,
-            start: "top 70%",
+            start: "top 30%",
             toggleActions: "play none none none",
           },
         }

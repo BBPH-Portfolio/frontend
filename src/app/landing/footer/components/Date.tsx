@@ -27,7 +27,7 @@ const TimeDisplay = () => {
   }
 
   return (
-    <span className="text-2xl md:text-4xl mr-5 font-[HelveticaHairline] tracking-[2px] inline-block w-[14rem] text-center">
+    <span className="text-2xl md:text-4xl sm:mr-5 mr-0 font-[HelveticaHairline] tracking-[2px] inline-block w-[14rem] text-center">
       {time}
     </span>
   );

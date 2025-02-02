@@ -77,7 +77,7 @@ export const GetTexts = () => {
       {title}
       </h2>
       <p
-        className="text-[0.95rem] sm:text-[1.3rem] pt-[4rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify"
+        className="sm:text-[1rem] text-sm pt-[4rem] tracking-[.3rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify"
         ref={bodyRef}
       >
         {body}

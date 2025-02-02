@@ -45,7 +45,7 @@ export const GetText = () => {
     <>
       <span
         ref={scrollTextRef}
-        className="absolute text-[#8B8B8B] right-0 text-right top-[30%] xl:top-[50%] overflow-hidden font-[HelveticaThinItalic] tracking-[.1rem] w-36 md:text-[1rem] text-sm"
+        className="absolute text-[#8B8B8B] right-0 text-right top-[30%] xl:top-[30%] overflow-hidden font-[HelveticaThinItalic] tracking-[.1rem] w-44 md:text-[1rem] text-sm"
       >
         {title}
       </span>

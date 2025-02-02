@@ -112,10 +112,10 @@ const DropDonwn = () => {
     <>
       <button
         onClick={handleChangueLanguage}
-        className="text-black dark:text-white cursor-none sm:mr-32 mr-0 sm:relative sm:-top-1 absolute top-[3rem] md:text-[1rem] text-sm"
+        className="text-black dark:text-white cursor-none sm:mr-32 mr-0 sm:relative sm:-top-1 absolute top-[3rem] sm:text-[1rem] text-sm tracking-[.3rem]"
         ref={buttonref}
       >
-        {Spanish ? "english" : "español"} 
+        {Spanish ? "ENG" : "ES"} 
       </button>
       <button
         onClick={handleMenuToggle}

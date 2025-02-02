@@ -86,7 +86,7 @@ export const GetTextsTitle = ({
   return (
     <>
       <p
-        className="text-[0.95rem] sm:text-[1.3rem] pt-[4rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify"
+        className="sm:text-[1rem] text-sm tracking-[.3rem] pt-[4rem] font-[HelveticaLight] w-auto lg:w-[38rem] text-justify"
         ref={bodyRef}
       >
         {body}

@@ -74,16 +74,9 @@ const LandScapeSection = () => {
 
   return (
     <section
-      className="overflow-hidden my-[20rem] relative landscape-section"
+      className="overflow-hidden sm:my-[20rem] relative landscape-section"
       ref={triggerRef}
     >
-      <div className="sm:hidden">
-        <div className="relative flex items-center justify-center w-screen h-screen">
-          <GetImage1 />
-          {token && <DialogImage />}
-        </div>
-      </div>
-
       <div ref={sectionRef} className="hidden sm:flex w-[300vw] h-screen">
         <div className="relative flex items-center justify-center w-screen h-full">
           <GetImage1 />
