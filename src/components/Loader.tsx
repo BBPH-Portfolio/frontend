@@ -8,16 +8,16 @@ export const Loader = () => {
 
   useEffect(() => {
     if (textRef.current) {
-      // Animación GSAP: de opacidad 0 a 1, y luego de regreso a 0
+      
       gsap.fromTo(
         textRef.current,
-        { opacity: 0 }, // Empieza con opacidad 0
+        { opacity: 0 }, 
         {
-          opacity: 1, // Aumenta opacidad a 1 (visible)
-          duration: 2, // Duración de 2 segundos para aparecer
-          yoyo: true, // Yoyo para revertir la animación
-          repeat: 1, // Repite una vez para volver a opacidad 0
-          ease: "power1.inOut", // Efecto de easing suave
+          opacity: 1,
+          duration: 2,
+          yoyo: true, 
+          repeat: 1, 
+          ease: "power1.inOut", 
         }
       );
     }

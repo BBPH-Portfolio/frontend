@@ -14,23 +14,7 @@ const Footer = () => {
     <section className="relative h-screen pt-20">
       <div className="w-[88%] mx-auto max-w-[100.75rem] text-black dark:text-color1 h-full">
         <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center">
-          <div
-            className="bg-[#c38fff] p-2 md:p-4 
-      transition-all duration-300 ease-in-out 
-      hover:scale-105 hover:shadow-lg 
-   hover:bg-[#9436ff]"
-          >
-            <Link
-              className="text-sm md:text-lg italic text-white dark:text-black 
-      transition-colors duration-300 
-      group-hover:text-gray-300 dark:group-hover:text-gray-700 cursor-none"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
-              target="_blank"
-            >
-              LET&apos;S CREATE
-            </Link>
-          </div>
-
+      
           <div className="flex absolute md:top-[20.5%] top-[30%] sm:right-[16%] right-[5%]">
             <span className="sm:text-4xl text-2xl">
               <TimeDisplay />
