@@ -69,7 +69,7 @@ const ServiceSection = () => {
 
   return (
     <>
-      <section className="mb-[20rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-24 text-black dark:text-color1">
+       <section className="mb-[20rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-24 text-black dark:text-color1">
         <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">
           {currentImage && (
             <div className="w-full max-w-[90%] min-h-[400px] relative">
@@ -79,6 +79,10 @@ const ServiceSection = () => {
                 className={`w-full h-full object-contain transition-all duration-500 ease-in-out ${
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}
+                onError={(e) => {
+                  console.error("Error al cargar imagen:", e);
+                  e.currentTarget.src = "/media/404.png";
+                }}
               />
             </div>
           )}
@@ -91,6 +95,16 @@ const ServiceSection = () => {
             <GetTextsTitle placement="content" />
             {token && <DialogTextTitle />}
           </div>
+
+       
+          {["01", "02", "03", "04"].map((subsection, index) => (
+            <div
+              key={index}
+              className="absolute hidden sm:block top-0 right-0 w-screen h-[100px] mt-[23rem]" 
+              style={{ top: `${7* index}rem` }}
+              onMouseEnter={() => handleHover(subsection)}
+            />
+          ))}
 
           <Accordion type="single" collapsible className="w-full mt-[7rem]">
             {["01", "02", "03", "04"].map((subsection, index) => (
