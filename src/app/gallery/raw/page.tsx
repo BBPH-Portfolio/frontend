@@ -48,8 +48,8 @@ const Gallery = () => {
 
   return (
     <>
-    <Switch/>
-    <div className="flex justify-center w-full ">
+      <Switch />
+      <div className="flex justify-center w-full ">
         <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
           <DropDonwn />
         </div>
@@ -58,9 +58,11 @@ const Gallery = () => {
           <Navbar />
         </div>
 
-        <div className="absolute top-12 left-[11.5%]">
+        <div className="absolute top-12 left-[11.5%] hover:scale-125 transition-all duration-300">
           <Link href="/" className="cursor-none">
-            <ChevronLeft className="size-10 text-black dark:text-white hover:scale-125 transition-all duration-300" />
+            <div className="p-4">
+              <ChevronLeft className="size-10 text-black dark:text-white" />
+            </div>
           </Link>
         </div>
       </div>
@@ -75,12 +77,14 @@ const Gallery = () => {
           </Link>
         </div>
         <div className="mt-[4rem] md:text-[1rem] text-sm">
-          <Link href="/gallery/raw" className="text-black dark:text-color1 cursor-none tracking-[.3rem]">
+          <Link
+            href="/gallery/raw"
+            className="text-black dark:text-color1 cursor-none tracking-[.3rem]"
+          >
             RAW
           </Link>
         </div>
       </div>
-
 
       <section className="w-[88%] mx-auto max-w-[125.75rem]">
         <section className="w-full h-auto mb-[5rem] mt-60">
