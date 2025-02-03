@@ -71,16 +71,10 @@ export const useServiceStore = create<ServiceStore>((set, get) => ({
   },
 }));
 
-
 const ServiceSection = () => {
   const [token, setToken] = useState(false);
-  const { 
-    images, 
-    currentImage, 
-    isTransitioning, 
-    fetchImages, 
-    handleHover 
-  } = useServiceStore();
+  const { images, currentImage, isTransitioning, fetchImages, handleHover } =
+    useServiceStore();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -105,11 +99,8 @@ const ServiceSection = () => {
                 className={`w-full h-full object-contain transition-all duration-500 ease-in-out ${
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}
-                onError={(e: any) => {
-                  console.error("Error al cargar imagen:", e);
-                  e.currentTarget.src = "/media/404.png";
-                }}
                 priority
+                
                 loading="eager"
               />
             </div>
