@@ -100,6 +100,7 @@ const ServiceSection = () => {
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}
                 priority
+                
                 loading="eager"
               />
             </div>
