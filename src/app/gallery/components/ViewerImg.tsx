@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface ImageViewerProps {
@@ -61,7 +62,9 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
         </button>
       </div>
 
-      <img
+      <Image
+        width={1000}
+        height={1000}
         src={images[currentIndex].url}
         alt={images[currentIndex].alt}
         className="aspect-[3/2] w-[50rem] object-cover"
