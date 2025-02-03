@@ -16,73 +16,101 @@ import { GetTexts4 } from "./components/text4/GetTexts";
 import { DialogText4 } from "./components/text4/DialogText";
 import { GetTextsTitle } from "./components/title/GetTexts";
 import DialogTextTitle from "./components/title/DialogText";
+import { create } from "zustand";
+import Image from "next/image";
+
+interface Image {
+  _id: string;
+  url: string;
+  subsection: string;
+}
+
+interface ServiceStore {
+  images: Image[];
+  currentImage: string | null;
+  isTransitioning: boolean;
+  setImages: (images: Image[]) => void;
+  setCurrentImage: (url: string | null) => void;
+  setIsTransitioning: (isTransitioning: boolean) => void;
+  fetchImages: () => Promise<void>;
+  handleHover: (subsection: string) => Promise<void>;
+}
+
+export const useServiceStore = create<ServiceStore>((set, get) => ({
+  images: [],
+  currentImage: null,
+  isTransitioning: false,
+
+  setImages: (images) => set({ images }),
+  setCurrentImage: (currentImage) => set({ currentImage }),
+  setIsTransitioning: (isTransitioning) => set({ isTransitioning }),
+
+  fetchImages: async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/images/section/services`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        set({ images: data, currentImage: data[0]?.url || null });
+      } else {
+        console.error("Error al obtener las imágenes:", response.status);
+      }
+    } catch (error) {
+      console.error("Error general:", error);
+    }
+  },
+
+  handleHover: async (subsection) => {
+    set({ isTransitioning: true });
+    const image = get().images.find((img) => img.subsection === subsection);
+    if (image) {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      set({ currentImage: image.url, isTransitioning: false });
+    }
+  },
+}));
+
 
 const ServiceSection = () => {
   const [token, setToken] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const { 
+    images, 
+    currentImage, 
+    isTransitioning, 
+    fetchImages, 
+    handleHover 
+  } = useServiceStore();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(true);
   }, []);
 
-  const [images, setImages] = useState<
-    Array<{
-      _id: string;
-      url: string;
-      subsection: string;
-    }>
-  >([]);
-
-  const [currentImage, setCurrentImage] = useState<string | null>(null);
-
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/images/section/services`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setImages(data);
-          setCurrentImage(data[0]?.url || null);
-        } else {
-          console.error("Error al obtener las imágenes:", response.status);
-        }
-      } catch (error) {
-        console.error("Error general:", error);
-      }
-    };
-
     fetchImages();
   }, []);
 
-  const handleHover = async (subsection: string) => {
-    setIsTransitioning(true);
-    const image = images.find((img) => img.subsection === subsection);
-    if (image) {
-      await new Promise((resolve) => setTimeout(resolve, 300));
-      setCurrentImage(image.url);
-      setIsTransitioning(false);
-    }
-  };
-
   return (
     <>
-       <section className="mb-[20rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-24 text-black dark:text-color1">
+      <section className="mb-[20rem] h-auto grid grid-cols-1 2xl:grid-cols-2 grid-rows-1 gap-24 text-black dark:text-color1">
         <section className="flex justify-center relative items-center mt-[7rem] 2xl:mt-0">
           {currentImage && (
             <div className="w-full max-w-[90%] min-h-[400px] relative">
-              <img
+              <Image
                 src={currentImage}
                 alt="Imagen de servicio"
+                width={1000}
+                height={1000}
                 className={`w-full h-full object-contain transition-all duration-500 ease-in-out ${
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}
-                onError={(e) => {
+                onError={(e: any) => {
                   console.error("Error al cargar imagen:", e);
                   e.currentTarget.src = "/media/404.png";
                 }}
+                priority
+                loading="eager"
               />
             </div>
           )}
@@ -96,12 +124,11 @@ const ServiceSection = () => {
             {token && <DialogTextTitle />}
           </div>
 
-       
           {["01", "02", "03", "04"].map((subsection, index) => (
             <div
               key={index}
-              className="absolute hidden sm:block top-0 right-0 w-screen h-[100px] mt-[23rem]" 
-              style={{ top: `${7* index}rem` }}
+              className="absolute hidden sm:block top-0 right-0 w-screen h-[100px] mt-[23rem]"
+              style={{ top: `${7 * index}rem` }}
               onMouseEnter={() => handleHover(subsection)}
             />
           ))}
