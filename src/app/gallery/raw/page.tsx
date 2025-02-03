@@ -10,6 +10,7 @@ import ImageViewer from "./components/ViewerImg";
 import DropDonwn from "@/components/navbar/DropDonwn";
 import Switch from "@/components/Switch";
 import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -94,11 +95,13 @@ const Gallery = () => {
                 key={image.id}
                 className="overflow-hidden relative w-[100%] aspect-[3/2]"
               >
-                <img
+                <Image
                   src={image.url}
                   alt={image.alt || `Image ${image.id}`}
                   className="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105"
                   draggable={false}
+                  width={1000}
+                  height={1000}
                   onClick={() => openImageViewer(index)}
                 />
                 {token && (
