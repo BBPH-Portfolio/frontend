@@ -27,16 +27,18 @@ const About = () => {
           <DropDonwn />
         </div>
         <div
-          className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end ${
+          className={`z-[1] hidden fixed w-[88%] mx-auto max-w-[90.75rem] justify-end items-end ${
             mixBlend ? "mix-blend-difference" : ""
           }`}
         >
           <Navbar />
         </div>
 
-        <div className="absolute top-12 left-[11.5%]">
+        <div className="absolute top-12 left-[11.5%] hover:scale-125 transition-all duration-300">
           <Link href="/" className="cursor-none">
-            <ChevronLeft className="size-10 text-black dark:text-white hover:scale-125 transition-all duration-300" />
+            <div className="p-4">
+              <ChevronLeft className="size-10 text-black dark:text-white" />
+            </div>
           </Link>
         </div>
       </div>
@@ -46,7 +48,7 @@ const About = () => {
           <div>
             <div className="relative flex flex-col mt-64">
               <GetTexts />
-            
+
               {token && <DialogText />}
             </div>
           </div>
