@@ -110,7 +110,7 @@ const Switch = () => {
         </div>
       </StyledWrapper>
 
-      <div className="fixed w-16 bottom-44 right-5 z-50 hover:scale-125 transition-all duration-500 cursor-none">
+      <div className="fixed w-[3rem] sm:w-16 bottom-44 right-4 z-50 hover:scale-125 transition-all duration-500 cursor-none">
         <Link
           href="https://calendly.com/brianbecerraph/30min"
           target="_blank"
@@ -150,6 +150,13 @@ const StyledWrapper = styled.div`
     cursor: none;
     box-shadow: 0 0 50px 20px rgba(24, 24, 24, 0.1);
     line-height: 1;
+  }
+
+  @media (max-width: 640px) {
+    .toggle {
+      width: 35px;
+      height: 35px;
+    }
   }
 
   .input {
