@@ -72,7 +72,7 @@ const Gallery = () => {
         <div className="mt-[4rem] text-[#8B8B8B] md:text-[1rem] text-sm">
           <Link
             href="/gallery"
-            className="text-[#8B8B8B] cursor-none mr-[10%] tracking-[.3rem]"
+            className="text-[#8B8B8B] cursor-none mr-10 tracking-[.3rem]"
           >
             COMMERCIAL
           </Link>
