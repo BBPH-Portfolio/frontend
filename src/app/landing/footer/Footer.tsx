@@ -40,7 +40,7 @@ const Footer = () => {
 
         <div className="w-full flex flex-col justify-between items-start mt-[-15rem] ">
           <div className="font-[HelveticaHairline] tracking-[2px] flex md:flex-row flex-col">
-            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105 ml-[11rem] sm:ml-0">
+            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105 ml-[7rem] sm:ml-0">
               <Link
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
                 target="_blank"
@@ -49,7 +49,7 @@ const Footer = () => {
                 Brianbecerraph@gmail.com
               </Link>
             </h3>
-            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105 sm:ml-0 ml-[16rem] sm:mt-0 mt-10">
+            <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105 sm:ml-0 ml-[12rem] sm:mt-0 mt-10">
               <Link
                 href="https://wa.me/573134503971"
                 target="_blank"

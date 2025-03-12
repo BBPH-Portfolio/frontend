@@ -28,15 +28,7 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
 
   return (
     <div className="fixed inset-0 bg-white dark:bg-[#141414] flex items-center justify-center z-50">
-      <div
-        className="absolute 
-  left-[8.1%] 
-  top-[7rem] 
-  max-md:top-[9rem] 
-  text-black 
-  dark:text-white 
-  2xl:top-[22rem]"
-      >
+      <div className="absolute left-[8.1%] top-[7rem] max-md:top-[9rem] text-black  dark:text-white xl:top-[22rem]">
         <button className="italic cursor-none" onClick={goToPrevious}>
           previous
         </button>
@@ -46,14 +38,7 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
         </button>
       </div>
 
-      <div
-        className="absolute 
-  left-[15rem] 
-  top-[7rem] 
-  max-md:top-[9rem]   
-  2xl:top-[24rem] 
-  2xl:left-[7%]"
-      >
+      <div className="absolute left-[15rem] top-[7rem] max-md:top-[9rem] xl:top-[24rem] xl:left-[7%]">
         <button
           onClick={onClose}
           className="text-black dark:text-white cursor-none italic"
