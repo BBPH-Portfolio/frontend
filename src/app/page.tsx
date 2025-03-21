@@ -7,11 +7,12 @@ import LastUpdates from "./landing/last_uptadate/LastUpdates";
 import PictureSection from "./landing/first_section/PictureSection";
 import ServiceSection from "./landing/services/ServiceSection";
 import { Loader } from "@/components/Loader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { useMixBlend } from "@/store/store";
 import DropDonwn from "@/components/navbar/DropDonwn";
 import Switch from "@/components/Switch";
+import Background from "@/components/navbar/Background";
 
 interface IStore {
   loading: boolean;
@@ -26,6 +27,7 @@ const useStoreLoading = create<IStore>((set) => ({
 export default function Home() {
   const { loading, setLoading } = useStoreLoading();
   const { mixBlend } = useMixBlend();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const hasLoaded = sessionStorage.getItem("hasLoaded");
@@ -58,11 +60,17 @@ export default function Home() {
 
   return (
     <>
-    <Switch />
-      <div className="flex justify-center w-full">       
-        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
-          <DropDonwn />
+      <Switch />
+
+      <div className="flex justify-center w-full">
+        <div className="z-50">
+          <Background isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
+
+        <div className="fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center mix-blend-difference z-50">
+          <DropDonwn setIsOpen={setIsOpen} isOpen={isOpen} />
+        </div>
+
         <div
           className={`z-[1] fixed w-[88%] mx-auto max-w-[90.75rem] justify-end flex items-end   ${
             mixBlend ? "mix-blend-difference" : ""

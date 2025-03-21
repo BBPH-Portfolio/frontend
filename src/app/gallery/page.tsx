@@ -11,6 +11,7 @@ import DropDonwn from "@/components/navbar/DropDonwn";
 import Switch from "@/components/Switch";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
+import Background from "@/components/navbar/Background";
 
 const Gallery = () => {
   const [token, setToken] = useState(false);
@@ -20,6 +21,7 @@ const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -51,8 +53,12 @@ const Gallery = () => {
     <>
       <Switch />
       <div className="flex justify-center w-full ">
-        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
-          <DropDonwn />
+        <div className="z-50">
+          <Background isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
+
+        <div className="fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center mix-blend-difference z-50">
+          <DropDonwn setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
 
         <div className="absolute hidden">

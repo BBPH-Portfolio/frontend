@@ -10,10 +10,12 @@ import { useMixBlend } from "@/store/store";
 import Switch from "@/components/Switch";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import Background from "@/components/navbar/Background";
 
 const About = () => {
   const [token, setToken] = useState(false);
   const { mixBlend } = useMixBlend();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -23,8 +25,13 @@ const About = () => {
     <>
       <Switch />
       <div className="flex justify-center w-full relative">
-        <div className="z-[100] fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center">
-          <DropDonwn />
+        
+      <div className="z-50">
+          <Background isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
+
+        <div className="fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center mix-blend-difference z-50">
+          <DropDonwn setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
         <div
           className={`z-[1] hidden fixed w-[88%] mx-auto max-w-[90.75rem] justify-end items-end ${
