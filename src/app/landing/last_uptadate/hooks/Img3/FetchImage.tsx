@@ -4,65 +4,73 @@ interface ImageData {
 }
 
 export const fetchImageUrl = async (): Promise<ImageData | null> => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`
-      );
-  
-      if (response.ok) {
-        const data = await response.json();
-        return { url: data.url, link: data.link };
-      } else {
-        console.error("Error al obtener la imagen:", response.status);
-        return null;
-      }
-    } catch (error) {
-      console.error("Error general:", error);
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      return { url: data.url, link: data.link };
+    } else {
+      console.error("Error al obtener la imagen:", response.status);
       return null;
     }
-  };
+  } catch (error) {
+    console.error("Error general:", error);
+    return null;
+  }
+};
 
+export const uploadFileImage = async (file: File, link: string) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("section", "1");
+  formData.append("subsection", "1");
+  formData.append("link", link);
 
-  export const uploadFileImage = async (file: File, link: string) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("section", "1");
-    formData.append("subsection", "1");
-    formData.append("link", link);
-  
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`,
-      {
-        method: "PATCH",
-        body: formData,
-      }
-    );
-  
-    if (!response.ok) {
-      throw new Error("Error al reemplazar la imagen");
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`,
+    {
+      method: "PATCH",
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
-  
-    const data = await response.json();
-    return { url: data.url, link: data.link };
-  };
-  
-  export const updateImageLink = async (link: string) => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ link }),
-      }
-    );
-  
-    if (!response.ok) {
-      throw new Error("Error al actualizar el enlace de la imagen");
+  );
+
+  if (!response.ok) {
+    throw new Error("Error al reemplazar la imagen");
+  }
+
+  const data = await response.json();
+  return { url: data.url, link: data.link };
+};
+
+export const updateImageLink = async (link: string) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/images/6703e12e3c3e719b7c7611f2`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ link }),
     }
-  
-    const data = await response.json();
-    return { url: data.url, link: data.link };
-  };
-  
+  );
+
+  if (!response.ok) {
+    throw new Error("Error al actualizar el enlace de la imagen");
+  }
+
+  const data = await response.json();
+  return { url: data.url, link: data.link };
+};

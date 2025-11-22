@@ -17,15 +17,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex items-center justify-center h-screen">
-      <div className="relative">
+
+      <div className="relative mix-blend-difference !text-white">
         <GetTextTitle />
         {token && <DialogTextTitle />}
       </div>
-
-      <GetText />
+      <div className="mix-blend-difference">
+        <GetText />
+      </div>
       {token && <DialogText />}
 
-      <GetTextLeft />
+      <div className="mix-blend-difference">
+        <GetTextLeft />
+      </div>
       {token && <DialogTextLeft />}
     </section>
   );

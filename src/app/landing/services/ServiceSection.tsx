@@ -1,11 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { GetTexts1 } from "./components/text1/GetTexts";
 import DialogText1 from "./components/text1/DialogText";
 import { GetTexts2 } from "./components/text2/GetTexts";
@@ -18,6 +12,8 @@ import { GetTextsTitle } from "./components/title/GetTexts";
 import DialogTextTitle from "./components/title/DialogText";
 import { create } from "zustand";
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface Image {
   _id: string;
@@ -73,6 +69,8 @@ export const useServiceStore = create<ServiceStore>((set, get) => ({
 
 const ServiceSection = () => {
   const [token, setToken] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
   const { images, currentImage, isTransitioning, fetchImages, handleHover } =
     useServiceStore();
 
@@ -84,6 +82,36 @@ const ServiceSection = () => {
   useEffect(() => {
     fetchImages();
   }, []);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.matchMedia("(hover: hover)").matches);
+    };
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  const services = ["01", "02", "03", "04"];
+  const serviceRoutes = [
+    "/services/01",
+    "/services/02",
+    "/services/03",
+    "/services/04",
+  ];
+
+  const handleMouseEnter = (index: number, subsection: string) => {
+    if (isDesktop) {
+      setExpandedIndex(index);
+      handleHover(subsection);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isDesktop) {
+      setExpandedIndex(null);
+    }
+  };
 
   return (
     <>
@@ -100,7 +128,6 @@ const ServiceSection = () => {
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}
                 priority
-                
                 loading="eager"
               />
             </div>
@@ -114,78 +141,91 @@ const ServiceSection = () => {
             <GetTextsTitle placement="content" />
             {token && <DialogTextTitle />}
           </div>
-
-          {["01", "02", "03", "04"].map((subsection, index) => (
-            <div
-              key={index}
-              className="absolute hidden sm:block top-0 right-0 w-screen h-[100px] mt-[23rem]"
-              style={{ top: `${7 * index}rem` }}
-              onMouseEnter={() => handleHover(subsection)}
-            />
-          ))}
-
-          <Accordion type="single" collapsible className="w-full mt-[7rem]">
-            {["01", "02", "03", "04"].map((subsection, index) => (
-              <AccordionItem
+          <div className="w-full mt-[7rem]">
+            {services.map((subsection, index) => (
+              <div
                 key={index}
-                value={`item-${index + 1}`}
-                className="border-b border-black dark:border-white"
-                onMouseEnter={() => handleHover(subsection)}
+                className="relative border-b border-black dark:border-white"
               >
-                <AccordionTrigger className="relative py-10 cursor-none">
-                  <div className="flex justify-between w-full">
-                    {index === 0 && <GetTexts1 placement="trigger" />}
-                    {index === 1 && <GetTexts2 placement="trigger" />}
-                    {index === 2 && <GetTexts3 placement="trigger" />}
-                    {index === 3 && <GetTexts4 placement="trigger" />}
-                    {token && (
-                      <>
-                        {index === 0 && (
-                          <DialogText1
-                            imageId={
-                              images.find((img) => img.subsection === "01")?._id
-                            }
-                          />
-                        )}
-                        {index === 1 && (
-                          <DialogText2
-                            imageId={
-                              images.find((img) => img.subsection === "02")?._id
-                            }
-                          />
-                        )}
-                        {index === 2 && (
-                          <DialogText3
-                            imageId={
-                              images.find((img) => img.subsection === "03")?._id
-                            }
-                          />
-                        )}
-                        {index === 3 && (
-                          <DialogText4
-                            imageId={
-                              images.find((img) => img.subsection === "04")?._id
-                            }
-                          />
-                        )}
-                      </>
+                {token && (
+                  <div className="absolute top-10 left-0 z-20 pointer-events-auto">
+                    {index === 0 && (
+                      <DialogText1
+                        imageId={
+                          images.find((img) => img.subsection === "01")?._id
+                        }
+                      />
                     )}
-                    <h2 className="sm:text-[1rem] text-sm tracking-[.3rem]">
-                      {subsection}
-                    </h2>
+                    {index === 1 && (
+                      <DialogText2
+                        imageId={
+                          images.find((img) => img.subsection === "02")?._id
+                        }
+                      />
+                    )}
+                    {index === 2 && (
+                      <DialogText3
+                        imageId={
+                          images.find((img) => img.subsection === "03")?._id
+                        }
+                      />
+                    )}
+                    {index === 3 && (
+                      <DialogText4
+                        imageId={
+                          images.find((img) => img.subsection === "04")?._id
+                        }
+                      />
+                    )}
                   </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="pb-4 sm:text-[1rem] text-sm">
-                    {index === 0 && <GetTexts1 placement="content" />}
-                    {index === 1 && <GetTexts2 placement="content" />}
-                    {index === 2 && <GetTexts3 placement="content" />}
-                    {index === 3 && <GetTexts4 placement="content" />}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+                )}
+
+                <Link href={serviceRoutes[index]} className="block cursor-none">
+                  <div
+                    className="relative py-10 group"
+                    onMouseEnter={() => handleMouseEnter(index, subsection)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div
+                      className="w-screen h-[100px] absolute right-[0rem]"
+                      onMouseEnter={() => handleMouseEnter(index, subsection)}
+                      onMouseLeave={handleMouseLeave}
+                    />
+                    <div className="flex justify-between w-full items-center">
+                      <div className="flex-1">
+                        {index === 0 && <GetTexts1 placement="trigger" />}
+                        {index === 1 && <GetTexts2 placement="trigger" />}
+                        {index === 2 && <GetTexts3 placement="trigger" />}
+                        {index === 3 && <GetTexts4 placement="trigger" />}
+                      </div>
+                      <div className="transition-transform duration-300">
+                        {expandedIndex === index && isDesktop ? (
+                          <ChevronUp className="w-5 h-5" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5" />
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedIndex === index && isDesktop
+                          ? "max-h-96 opacity-100 mt-4"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <div className="pb-4 sm:text-[1rem] text-sm">
+                        {index === 0 && <GetTexts1 placement="content" />}
+                        {index === 1 && <GetTexts2 placement="content" />}
+                        {index === 2 && <GetTexts3 placement="content" />}
+                        {index === 3 && <GetTexts4 placement="content" />}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </section>
       </section>
     </>

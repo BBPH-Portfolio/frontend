@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/components/navbar/Navbar";
 
 const DialogTextTitle: React.FC = () => {
-  const { setTitle, setBody } = useTextStore();
+  const { setTitle, setBody, id } = useTextStore();
   const { Spanish } = useLanguage();
 
   const handleTextUpload = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,6 +31,13 @@ const DialogTextTitle: React.FC = () => {
       return;
     }
 
+    if (!id) {
+      toast.error(
+        "No se ha cargado el ID del texto. Por favor, recarga la página."
+      );
+      return;
+    }
+
     let UploadText;
 
     if (Spanish) {
@@ -40,7 +47,7 @@ const DialogTextTitle: React.FC = () => {
     }
 
     try {
-      const data = await UploadText(titleFetch, bodyFetch);
+      const data = await UploadText(titleFetch, bodyFetch, id);
 
       if (data.title) setTitle(data.title);
       if (data.body) setBody(data.body);
@@ -48,14 +55,16 @@ const DialogTextTitle: React.FC = () => {
       toast.success("Texto reemplazado con éxito");
     } catch (error) {
       console.error("Error al reemplazar el texto:", error);
-      toast.error("Error al reemplazar el texto");
+      const errorMessage =
+        error instanceof Error ? error.message : "Error al reemplazar el texto";
+      toast.error(errorMessage);
     }
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-[#29292965] absolute left-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
+        <div className="bg-[#29292965] absolute right-0 cursor-pointer z-10 flex items-center justify-center h-14 w-14">
           <Pencil className="text-white w-10" />
         </div>
       </DialogTrigger>

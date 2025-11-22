@@ -52,17 +52,16 @@ const Gallery = () => {
   return (
     <>
       <Switch />
-      <div className="flex justify-center w-full ">
+      <div className="absolute hidden">
+        <Navbar />
+      </div>
+      <div className="flex justify-center w-full h-[18rem] bg-white dark:bg-[#141414] fixed z-50">
         <div className="z-50">
           <Background isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
-        <div className="fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center mix-blend-difference z-50">
+        <div className="fixed w-[88%] mx-auto max-w-[90.75rem] top-14 justify-end flex items-center z-50 mix-blend-difference">
           <DropDonwn setIsOpen={setIsOpen} isOpen={isOpen} />
-        </div>
-
-        <div className="absolute hidden">
-          <Navbar />
         </div>
 
         <div className="absolute top-12 left-[11.5%] hover:scale-125 transition-all duration-300">
@@ -72,29 +71,29 @@ const Gallery = () => {
             </div>
           </Link>
         </div>
+
+        <div className="md:w-[23%] w-40 flex md:pt-[0rem] relative -left-[24%] top-32 justify-between">
+          <div className="mt-[4rem] text-[#8B8B8B] md:text-[1rem] text-sm">
+            <Link
+              href="/gallery"
+              className="text-black dark:text-color1 cursor-none mr-10 tracking-[.3rem]"
+            >
+              COMMERCIAL
+            </Link>
+          </div>
+          <div className="mt-[4rem] md:text-[1rem] text-sm">
+            <Link
+              href="/gallery/raw"
+              className="text-[#8B8B8B] cursor-none tracking-[.3rem]"
+            >
+              RAW
+            </Link>
+          </div>
+        </div>
       </div>
 
-      <div className="md:w-[23%] w-40 flex md:pt-[0rem] absolute md:relative left-[15%] top-32 justify-between">
-        <div className="mt-[4rem] text-[#8B8B8B] md:text-[1rem] text-sm">
-          <Link
-            href="/gallery"
-            className="text-black dark:text-color1 cursor-none mr-10 tracking-[.3rem]"
-          >
-            COMMERCIAL
-          </Link>
-        </div>
-        <div className="mt-[4rem] md:text-[1rem] text-sm">
-          <Link
-            href="/gallery/raw"
-            className="text-[#8B8B8B] cursor-none tracking-[.3rem]"
-          >
-            RAW
-          </Link>
-        </div>
-      </div>
-
-      <section className="w-[88%] mx-auto max-w-[125.75rem]">
-        <section className="w-full h-auto mb-[5rem] mt-60">
+      <section className="w-[88%] mx-auto max-w-[125.75rem] pt-[20rem]">
+        <div className="w-full h-auto mb-[5rem]">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {orderedImages.map((image, index) => (
               <div
@@ -125,7 +124,7 @@ const Gallery = () => {
               </div>
             )}
           </div>
-        </section>
+        </div>
       </section>
 
       {selectedImageIndex !== null && (

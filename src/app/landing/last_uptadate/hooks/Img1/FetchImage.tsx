@@ -29,11 +29,21 @@ export const uploadFileImage = async (file: File, link: string) => {
   formData.append("subsection", "1");
   formData.append("link", link);
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/images/6703ddcb3c3e719b7c76110f`,
     {
       method: "PATCH",
       body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
   );
 
@@ -46,12 +56,19 @@ export const uploadFileImage = async (file: File, link: string) => {
 };
 
 export const updateImageLink = async (link: string) => {
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/images/6703ddcb3c3e719b7c76110f`,
     {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ link }),
     }

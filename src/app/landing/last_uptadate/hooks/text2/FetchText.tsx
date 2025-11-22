@@ -50,6 +50,13 @@ export const uploadFileTextEn = async (title: string, body: string) => {
   if (title) payload.title = title;
   if (body) payload.body = body;
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
+
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/texts/6703ea6cb3493fa16076757d`,
@@ -58,6 +65,7 @@ export const uploadFileTextEn = async (title: string, body: string) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(payload),
       }
@@ -82,6 +90,13 @@ export const uploadFileTextEs = async (title: string, body: string) => {
   if (title) payload.title = title;
   if (body) payload.body = body;
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
+
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/texts/6703ea77b3493fa16076757f`,
@@ -90,6 +105,7 @@ export const uploadFileTextEs = async (title: string, body: string) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(payload),
       }

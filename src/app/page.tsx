@@ -79,6 +79,16 @@ export default function Home() {
           <Navbar />
         </div>
       </div>
+{/* 
+      <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
+        <video
+          className="w-full h-full object-cover"
+          src="/Video.mp4"
+          loop
+          muted
+          autoPlay
+        ></video>
+      </div> */}
 
       <div className="w-[88%] mx-auto max-w-[90.75rem]">
         <HeroSection />

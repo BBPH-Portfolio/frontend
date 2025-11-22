@@ -21,12 +21,12 @@ const About = () => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(true);
   }, []);
+
   return (
     <>
       <Switch />
       <div className="flex justify-center w-full relative">
-        
-      <div className="z-50">
+        <div className="z-50">
           <Background isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
@@ -50,17 +50,36 @@ const About = () => {
         </div>
       </div>
 
+      <div className="md:w-[23%] w-40 flex relative left-[7%] md:left-[16%] top-20 justify-between">
+        <div className="mt-[4rem] md:text-[1rem] text-sm">
+          <Link
+            href="/about"
+            className="text-black dark:text-color1 cursor-none mr-10 tracking-[.3rem]"
+          >
+            PERSONAL
+          </Link>
+        </div>
+        <div className="mt-[4rem] md:text-[1rem] text-sm">
+          <Link
+            href="/about/empresarial"
+            className="text-[#8B8B8B] cursor-none tracking-[.3rem]"
+          >
+            EMPRESARIAL
+          </Link>
+        </div>
+      </div>
+
       <section className="w-[88%] mx-auto max-w-[90.75rem] text-black dark:text-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-4 mt-[6rem] lg:mt-[20rem] mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-4 mt-[6rem] lg:mt-[9rem] mb-20">
           <div>
-            <div className="relative flex flex-col mt-64">
+            <div className="relative flex flex-col mt-80">
               <GetTexts />
 
               {token && <DialogText />}
             </div>
           </div>
 
-          <div className="relative lg:sticky lg:top-20 h-fit max-h-screen flex justify-center mt-10 sm:mt-0">
+          <div className="relative lg:sticky lg:top-[14.2rem] h-fit max-h-screen flex justify-end mt-10 sm:mt-0">
             <GetImage />
             {token && <DialogImage />}
           </div>

@@ -5,7 +5,7 @@ import { useLanguage } from "@/components/navbar/Navbar";
 import { gsap } from "gsap";
 
 export const GetTextTitle = () => {
-  const { title, setTitle, setBody } = useTextStore();
+  const { title, setTitle, setBody, setId } = useTextStore();
   const { Spanish } = useLanguage();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const scrollTextRef = useRef<HTMLSpanElement>(null);
@@ -24,11 +24,12 @@ export const GetTextTitle = () => {
       if (data) {
         setTitle(data.title);
         setBody(data.body);
+        setId(data.id);
       }
     };
 
     loadText();
-  }, [Spanish]);
+  }, [Spanish, setTitle, setBody, setId]);
 
   useEffect(() => {
     const titleSpans = titleRef.current?.querySelectorAll("span");
@@ -70,7 +71,7 @@ export const GetTextTitle = () => {
   return (
     <>
       <h1
-        className="Title text-[2.5rem] xl:text-[7rem] sm:text-[4.5rem] text-black dark:text-color1 font-[HelveticaExtraBold] overflow-hidden text-center"
+        className="Title text-[2.5rem] xl:text-[7rem] sm:text-[4.5rem]  font-[HelveticaExtraBold] overflow-hidden text-center"
         ref={titleRef}
       >
         <span className="block overflow-hidden">
