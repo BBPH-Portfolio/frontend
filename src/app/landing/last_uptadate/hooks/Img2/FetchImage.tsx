@@ -29,11 +29,21 @@ export const uploadFileImage = async (file: File, link: string) => {
   formData.append("subsection", "1");
   formData.append("link", link);
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  if (!token) {
+    throw new Error("Token de autenticación no disponible");
+  }
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/images/6703e0503c3e719b7c761141`,
     {
       method: "PATCH",
       body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
   );
 

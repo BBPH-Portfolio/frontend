@@ -16,9 +16,18 @@ interface DarkModeState {
 export const useDarkMode = create<DarkModeState>((set) => ({
   isDarkMode: false,
   toggleDarkMode: () => {
-    set((state) => ({ isDarkMode: !state.isDarkMode }));
+    set((state) => {
+      const newMode = !state.isDarkMode;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("theme", newMode ? "dark" : "light");
+      }
+      return { isDarkMode: newMode };
+    });
   },
   setDarkMode: (mode) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", mode ? "dark" : "light");
+    }
     set(() => ({ isDarkMode: mode }));
   },
 }));
@@ -39,8 +48,15 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode, setDarkMode } = useDarkMode();
   const { mixBlend } = useMixBlend();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -123,7 +139,7 @@ const Navbar = () => {
         <div className="flex justify-center">
           <div className="text-left md:text-center" onClick={handleNav}>
             <Link
-              className={`font-[HelveticaExBold] md:text-[3rem] text-[2rem] cursor-none select-none 
+              className={`font-[HelveticaExBold] md:text-[3rem] text-[2rem] cursor-none select-none mix-blend-difference
                 ${mixBlend ? "text-white" : "text-black dark:text-white"}`}
               href={"/"}
             >
