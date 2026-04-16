@@ -131,7 +131,7 @@ const Switch = () => {
       <div className="fixed w-[3rem] sm:w-16 bottom-44 right-4 z-50 group">
         <div className="hover:scale-125 transition-all duration-500 cursor-none">
           <Link
-            href="https://calendly.com/brianbecerraph/30min"
+            href="https://calendar.app.google/F9JCg7N1AK7DfeeN8"
             target="_blank"
             className="cursor-none"
           >
