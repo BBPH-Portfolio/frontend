@@ -42,11 +42,11 @@ const Footer = () => {
           <div className="font-[HelveticaHairline] tracking-[2px] flex md:flex-row flex-col">
             <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] hover:scale-105 ml-[7rem] sm:ml-0">
               <Link
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=brianbecerraph@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@bbphstudio.com"
                 target="_blank"
                 className="cursor-none"
               >
-                Brianbecerraph@gmail.com
+                hello@bbphstudio.com
               </Link>
             </h3>
             <h3 className="transition-all duration-300 ease-in-out hover:text-[#575757] md:ml-5 hover:scale-105 sm:ml-0 ml-[12rem] sm:mt-0 mt-10">
