@@ -12,6 +12,7 @@
 
 body {
   font-family: HelveticaLight;
+  overflow-x: hidden;
 }
 
 html {
