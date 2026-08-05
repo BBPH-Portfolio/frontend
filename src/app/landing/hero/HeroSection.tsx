@@ -7,6 +7,7 @@ import { GetTextLeft } from "./components/textLeft/GetTexts";
 import DialogTextLeft from "./components/textLeft/Dialog";
 import { GetTextTitle } from "./components/title/GetTexts";
 import DialogTextTitle from "./components/title/Dialog";
+import BackgroundVideo from "./components/BackgroundVideo";
 
 const HeroSection = () => {
   const [token, setToken] = useState(false);
@@ -17,6 +18,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex items-center justify-center h-screen">
+      <BackgroundVideo />
 
       <div className="relative mix-blend-difference !text-white">
         <GetTextTitle />
