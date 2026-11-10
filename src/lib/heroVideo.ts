@@ -26,7 +26,10 @@ export const getHeroVideo = () => {
     videoElement.playsInline = true;
     videoElement.setAttribute("muted", "");
     videoElement.setAttribute("playsinline", "");
+    videoElement.setAttribute("webkit-playsinline", "");
+    videoElement.setAttribute("x5-playsinline", "");
     videoElement.setAttribute("aria-hidden", "true");
+    videoElement.controls = false;
     videoElement.className = "w-full h-full object-cover";
     videoElement.load();
   }
